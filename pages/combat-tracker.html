@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link href="/dist/output.css" rel="stylesheet" />
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+
+    <body class="bg-gray-800">
+        <div>
+            <nav class="fixed left-0 overflow-y-auto  w-64 text-xl bg-gray-900 border-r-2 inset-y-0 z-30 border-indigo-800 text-gray-500">
+                <a href='/index.html'>
+                    <img
+                        class="flex w-full p-2 mb-4 hover:bg-indigo-800 items-center justify-center"
+                        src="/images/DNDampersand.jpeg"
+                        alt="Logo/Home"
+                        />
+                </a>
+                <a 
+			        class="flex p-2 mb-4 hover:bg-indigo-800 items-center justify-center" 
+			        href="/pages/categories.html">
+			        Categories
+                </a>
+                <a
+                    class="flex p-2 mb-4 hover:bg-indigo-800 items-center justify-center" 
+                    href="/pages/new-releases.html">
+                    New Releases
+                </a>
+                <a
+                    class="flex p-2 mb-4 hover:bg-indigo-800 items-center justify-center" 
+                    href="#">
+                    Combat tracker
+                </a>
+                <a
+                    class="flex p-2 mb-4 hover:bg-indigo-800 items-center justify-center"
+                    href="/pages/statblock-generator.html">
+                    Statblack Generator
+                </a>
+                <a 
+                    class="flex p-2 mb-4 hover:bg-indigo-800 items-center justify-center" 
+                    href="/pages/encounter-generator.html">
+                    Encounter Generator
+                </a>
+                <a
+                    class="flex p-2 mb-4 hover:bg-indigo-800 items-center justify-center" 
+                    href="/pages/player-resources.html">
+                    Player Resurces
+                </a>
+                <a
+                    class="flex p-2 mb-4 hover:bg-indigo-800 items-center justify-center" 
+                    href="/pages/dm-resources.html">
+                    Game Master Resoreces
+                </a>
+                <a
+                    class="flex p-2 mb-4 hover:bg-indigo-800 items-center justify-center" 
+                    href="/pages/books-rules.html">
+                    Books and Rules
+                </a>
+            </nav>
+        </div>
+        <h2 class="mx-auto pl-64 text-white text-2xl p-4">
+            Combat Tracker
+        </h2>
+        <main class="grid grid-cols-2 mx-auto pl-64">
+            <div>
+                
+        
+        
+                <!-- Take input from user: name -->
+                <!-- after user types in input -> display that input on our page -->
+               
+                
+                <section>
+                    <h2 class="text-white text-2xl p-4">
+                        Initiative Order
+                    </h2>
+                    <button 
+                        onclick="clearInitOrder()"
+                        class="bg-gray-600 hover:bg-indigo-800 rounded rounded-md m-1.5 p-1 px-4 text-indigo-400">
+                    Clear
+                    </button>
+                    <div class="flex items-center">
+                        <p class="text-white">0: </p>
+                        <input class="bg-gray-500 m-1.5 mt-2.5 rounded rounded-md p-1"
+                            type="text" 
+                            id="init-0" 
+                            placerholder="0"
+                            >
+                    </div>
+
+                </section>
+            </div>
+        </main>
+
+
+    <script src="/scripts/combat-tracker.js"></script>
+    <script src="/scripts/character-creator.js"></script>
+    </body>
+</html>
