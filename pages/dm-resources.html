@@ -1,64 +1,242 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-950 font-mono text-gray-400">
+	<div id="navbar" class="">
+		<nav class="flex h-16 w-full h-full text-[15px] p-3 bg-gray-900 border-r-2 z-30 border-indigo-800 items-center justify-center">
+			<a href='/index.html'>
+				<img
+					class="w-24 h-12 rounded-md hover:bg-indigo-800 items-center justify-center"
+					src="/images/DNDampersand.jpeg"
+					alt="Logo/Home"
+					/>
+			<a 
+				class="p-2 items-center justify-center hover:bg-indigo-800" 
+				href="/pages/categories.html">
+				Categories
+			</a>
+			<a
+				class="p-2 hover:bg-indigo-800" 
+				href="/pages/new-releases.html">
+				New Releases
+			</a>
+			<a
+				class="p-2 hover:bg-indigo-800" 
+				href="/pages/combat-tracker.html">
+				Combat tracker
+			</a>
+			<a
+				class="p-2  hover:bg-indigo-800"
+				href="/pages/statblock-generator.html">
+				Statblack Generator
+			</a>
+			<a 
+				class="p-2 hover:bg-indigo-800" 
+				href="/pages/encounter-generator.html">
+				Encounter Generator
+			</a>
+			<a
+				class="p-2 hover:bg-indigo-800" 
+				href="/pages/player-resources.html">
+				Player Resurces
+			</a>
+			<a
+				class="p-2 hover:bg-indigo-800" 
+				href="#">
+				Game Master Resoreces
+			</a>
+			<a
+				class="p-2 hover:bg-indigo-800" 
+				href="/pages/books-rules.html">
+				Books and Rules
+			</a>
+		</nav>
+	</div>
+    <!-- Container -->
+    <div class="flex h-screen">
 
-<html>
-    <head>
-        <link href="/dist/output.css" rel="stylesheet" />
-        <script src="https://cdn.tailwindcss.com"></script>
-    </head>
-
-    <body class="bg-gray-800">
-        <div>
-            <nav class="fixed left-0 overflow-y-auto  w-64 text-xl bg-gray-900 border-r-2 inset-y-0 z-30 border-indigo-800 text-gray-500">
-                <a href='/index.html'>
-                    <img
-                        class="flex w-full p-2 mb-4 hover:bg-indigo-800 items-center justify-center"
-                        src="/images/DNDampersand.jpeg"
-                        alt="Logo/Home"
-                        />
-                <a 
-			        class="flex p-2 mb-4 hover:bg-indigo-800 items-center justify-center" 
-			        href="/pages/categories.html">
-			        Categories
-                </a>
-                <a
-                    class="flex p-2 mb-4 hover:bg-indigo-800 items-center justify-center" 
-                    href="/pages/new-releases.html">
-                    New Releases
-                </a>
-                <a
-                    class="flex p-2 mb-4 hover:bg-indigo-800 items-center justify-center" 
-                    href="/pages/combat-tracker.html">
-                    Combat tracker
-                </a>
-                <a
-                    class="flex p-2 mb-4 hover:bg-indigo-800 items-center justify-center"
-                    href="/pages/statblock-generator.html">
-                    Statblack Generator
-                </a>
-                <a 
-                    class="flex p-2 mb-4 hover:bg-indigo-800 items-center justify-center" 
-                    href="/pages/encounter-generator.html">
-                    Encounter Generator
-                </a>
-                <a
-                    class="flex p-2 mb-4 hover:bg-indigo-800 items-center justify-center" 
-                    href="/pages/player-resources.html">
-                    Player Resurces
-                </a>
-                <a
-                    class="flex p-2 mb-4 hover:bg-indigo-800 items-center justify-center" 
-                    href="#">
-                    Game Master Resoreces
-                </a>
-                <a
-                    class="flex p-2 mb-4 hover:bg-indigo-800 items-center justify-center" 
-                    href="/pages/books-rules.html">
-                    Books and Rules
-                </a>
-            </nav>
+        <!-- Left Toolbar - Initially shown, toggle "hidden" class to show/hide -->
+        <div 
+			id="leftSidebar" 
+			class="flex flex-col fixed h-screen w-64 bg-gray-800 text-white p-4 space-y-4 overflow-y-auto transition-all ease-in-out duration-300 z-10">
+            <!-- ... Your content here ... -->
+			<h2 class="text-2xl pl-10">
+				Layers
+			</h2>
         </div>
-        <h2 class="text-white text-2xl m-4 p-4 pl-64">
-            Game Master Resources Page
-        </h2>
-    </body>
+
+        <!-- Main Content -->
+        <div class="flex relative p-4">
+            <!--Left Toggle Button -->
+            <button 
+				onclick="toggleSidebarL()" 
+				class="absolute top-4 left-4 z-20 p-1 bg-blue-500 text-white shadow-lg hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300 transition-transform duration-300">
+                <svg 
+					id="toggleIconL" 
+					xmlns="http://www.w3.org/2000/svg" 
+					class="h-6 w-6 transform" 
+					fill="none" 
+					viewBox="0 0 24 24" 
+					stroke="currentColor">
+                  <path 
+				  	stroke-linecap="round" 
+					stroke-linejoin="round" 
+					stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+            </button>
+			<!-- Navbar Toggle Button -->
+			<!-- <button 
+				onclick="toggleNavbar()" 
+				class="pl-72 absolute z-20 rounded top-16 left-4 p-2 bg-gradient-to-r from-blue-500 to-indigo-800 text-white shadow-lg hover:bg-yellow-600 focus:outline-none focus:ring focus:ring-blue-300 transition-transform duration-300"
+				id="nav-adjustment">
+                <svg 
+					id="toggleIconNav" 
+					xmlns="http://www.w3.org/2000/svg" 
+					class="w-6 h-6 transform rotate-180" 
+					fill="none" 
+					viewBox="0 0 24 24" 
+					stroke="currentColor">
+                  <path 
+				  	stroke-linecap="round" 
+					stroke-linejoin="round" 
+					stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+            </button> -->
+            <!-- Right Toggle Button -->
+            <button 
+				onclick="toggleSidebarR()" 
+				class="absolute top-4 right-4 z-20 p-1 bg-blue-500 text-white shadow-lg hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300 transition-transform duration-300">
+                <svg 
+					id="toggleIconR" 
+					xmlns="http://www.w3.org/2000/svg" 
+					class="h-6 w-6 transform rotate-180" 
+					fill="none" 
+					viewBox="0 0 24 24" 
+					stroke="currentColor">
+                  <path 
+				  	stroke-linecap="round" 
+					stroke-linejoin="round" 
+					stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+            </button>
+            <canvas id="gridCanvas" class="w-full h-full border border-gray-300"></canvas>
+        </div>
+
+        <!-- Right Toolbar - Initially shown, toggle "hidden" class to show/hide -->
+        <div 
+			id="rightSidebar" 
+			class="w-64 bg-gray-800 text-white fixed space-y-4 right-0 h-screen overflow-y-auto transition-all ease-in-out duration-300">
+            <!-- ... Your content here ... -->
+			<!-- 
+			opacity settings - number
+			wall settings - color, width
+			floor settings - color
+			shadow settings -
+			hatching - square/random - hatching thickness
+			eraser, room, stamp -->
+
+			
+
+			<div class="border-l border-gray-400/30 mr-12">
+				<!-- Walls Settings -->
+				<div class="bg-gray-800 p-2 mt-6 rounded-lg w-full">
+					<h3 class="text-xl font-semibold mb-2 text-white">Walls</h3>
+					<!-- Colour Picker -->
+					<div class="flex items-center justify-between mb-4">
+						<label for="walls-color" class="text-white text-sm font-medium mr-7">Color:</label>
+						<div class="flex items-center">
+							<input id="walls-color" type="color" class="w-8 h-8 rounded border-0 cursor-pointer" />
+							<input id="walls-color-hex" type="text" class="w-full ml-3 text-sm p-2 bg-gray-700 text-white border border-gray-600 rounded focus:outline-none focus:border-blue-500" 
+								placeholder="#000000"
+							/>
+						</div>
+					</div>
+					<!-- Width Selector -->
+					<div class="flex items-center justify-between">
+						<label for="walls-width" class="text-white text-sm font-medium mr-6">Width:</label>
+						<div class="flex items-center w-full">
+							<input id="walls-width-number" type="number" class="w-10 p-2 bg-gray-700 text-white border border-gray-600 rounded focus:outline-none focus:border-blue-500" placeholder="5" />
+							<input id="walls-width" type="range" min="1" max="100" class="w-28 m-2 h-3 bg-gray-700 border-gray-300 rounded cursor-pointer" />
+						</div>
+					</div>
+					<!-- opacity settings -->
+					<div class="flex items-center justify-between opacity-settings mt-2">
+						<p class="text-sm">Opacity: </p>
+						<div class="flex items-center w-full ml-3">
+							<input id="walls-opacity-number" type="number" class="w-10 p-2 bg-gray-700 text-white border border-gray-600 rounded focus:outline-none focus:border-blue-500" placeholder="5" />
+							<input id="walls-opacity" type="range" min="1" max="100" class="w-28 m-2 h-2 bg-gray-700 border-gray-300 rounded cursor-pointer" />
+						</div>
+					</div>
+					<div class="w-full m-4 h-0.5 border-t"></div>
+
+	
+				</div>
+				<!--end of wall settings-->
+				
+
+				<!-- floor settings -->
+				<div class="p-2 floor-settings">
+					<h3 class="text-xl font-semibold mb-4 text-white">Floor</h3>
+					<!-- floor color -->
+					<div class="flex items-center justify-between mb-4">
+						<label 
+							for="floor-color" 
+							class="text-white text-sm font-medium mr-7">Color:</label>
+						<div class="flex items-center">
+							<input 
+								id="floor-color" 
+								type="color" 
+								class="w-8 h-8 rounded border-0 cursor-pointer" />
+							<input 
+								id="floor-color-hex" 
+								type="text" 
+								class="w-full ml-3 text-sm p-2 bg-gray-700 text-white border border-gray-600 rounded focus:outline-none focus:border-blue-500" 
+								placeholder="#000000"
+							/>
+						</div>
+					</div>
+					<!-- grid color -->
+					<div class="flex items-center justify-between mb-4">
+						<label 
+							for="grid-color" 
+							class="text-white text-sm font-medium mr-7">Grid Color:</label>
+						<div class="flex items-center">
+							<input 
+								id="grid-color" 
+								type="color" 
+								class="w-8 h-8 rounded border-0 cursor-pointer" />
+							<input 
+								id="grid-color-hex" 
+								type="text" 
+								class="w-full ml-3 text-sm p-2 bg-gray-700 text-white border border-gray-600 rounded focus:outline-none focus:border-blue-500" 
+								placeholder="#000000"
+							/>
+						</div>
+					</div>
+					<!-- grid thickness -->
+					<div class="flex items-center justify-between grid-thickness mt-2">
+						<p class="text-sm">Grid Thickness: </p>
+						<div class="flex items-center w-full ml-3">
+							<input id="grid-thickness-number" type="number" class="w-10 p-2 bg-gray-700 text-white border border-gray-600 rounded focus:outline-none focus:border-blue-500" placeholder="5" />
+							<input id="grid-thickness" type="range" min="1" max="100" class="m-2 w-24 h-2 bg-gray-700 border-gray-300 rounded cursor-pointer" />
+						</div>
+					</div>
+					<div class="w-full m-4 h-0.5 border-t"></div>
+					</div>
+				</div>
+				
+			<!--End of right sidebar-->
+			</div>
+        </div>
+
+    </div>
+
+    <script src="/scripts/mapmaker.js"></script>
+
+</body>
 </html>

@@ -52,6 +52,7 @@ document.addEventListener('DOMContentLoaded',()=> {
         // Get the value from the input field
         let charName = document.getElementById('character-name').value;
         let charHP = document.getElementById('character-hp').value;
+        console.log('something')
         let charAC = document.getElementById('character-ac').value;
         let charSpeed = document.getElementById('character-speed').value;
         let charAbilities = document.getElementById('character-abilities').value;
@@ -62,6 +63,7 @@ document.addEventListener('DOMContentLoaded',()=> {
         let charInt = document.getElementById('character-int').value;
         let charWis = document.getElementById('character-wis').value;
         let charCha = document.getElementById('character-cha').value;
+        console.log(charName, charHP, charAC, charSpeed, charAbilities, charActions, charStr, charDex, charCon, charInt, charWis, charCha)
         // let cardContent;
         
         if(charName == '' || charHP == '' || charAC == '' || charSpeed == '' || charActions == '' || charStr == '' || charDex == '' || charCon == '' || charInt == '' || charWis == '' || charCha == ''){
