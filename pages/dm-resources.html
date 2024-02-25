@@ -7,54 +7,56 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-950 font-mono text-gray-400">
-	<div id="navbar" class="">
-		<nav class="flex h-16 w-full h-full text-[15px] p-3 bg-gray-900 border-r-2 z-30 border-indigo-800 items-center justify-center">
+	<div id="navbar" class="sticky top-0 z-50">
+		<nav class="space-x-2 flex p-2 h-full w-full text-sm  bg-gray-900 border-r-2 border-indigo-800 items-center justify-center text-center">
 			<a href='/index.html'>
 				<img
-					class="w-24 h-12 rounded-md hover:bg-indigo-800 items-center justify-center"
+					class="object-fill w-24 h-10 rounded-md hover:bg-indigo-800 items-center justify-center"
 					src="/images/DNDampersand.jpeg"
 					alt="Logo/Home"
+					
 					/>
 			<a 
-				class="p-2 items-center justify-center hover:bg-indigo-800" 
+				class="items-center hover:bg-indigo-800 rounded-lg p-2" 
 				href="/pages/categories.html">
 				Categories
 			</a>
 			<a
-				class="p-2 hover:bg-indigo-800" 
+				class="hover:bg-indigo-800 rounded-lg p-2" 
 				href="/pages/new-releases.html">
 				New Releases
 			</a>
 			<a
-				class="p-2 hover:bg-indigo-800" 
+				class="hover:bg-indigo-800 rounded-lg p-2" 
 				href="/pages/combat-tracker.html">
-				Combat tracker
+				Combat Ttracker
 			</a>
 			<a
-				class="p-2  hover:bg-indigo-800"
+				class=" hover:bg-indigo-800 rounded-lg p-2"
 				href="/pages/statblock-generator.html">
 				Statblack Generator
 			</a>
 			<a 
-				class="p-2 hover:bg-indigo-800" 
+				class="hover:bg-indigo-800 rounded-lg p-2" 
 				href="/pages/encounter-generator.html">
 				Encounter Generator
 			</a>
 			<a
-				class="p-2 hover:bg-indigo-800" 
+				class="hover:bg-indigo-800 rounded-lg p-2" 
 				href="/pages/player-resources.html">
 				Player Resurces
 			</a>
 			<a
-				class="p-2 hover:bg-indigo-800" 
+				class="hover:bg-indigo-800 rounded-lg p-2" 
 				href="#">
 				Game Master Resoreces
 			</a>
 			<a
-				class="p-2 hover:bg-indigo-800" 
+				class="hover:bg-indigo-800 rounded-lg p-2" 
 				href="/pages/books-rules.html">
 				Books and Rules
 			</a>
+
 		</nav>
 	</div>
     <!-- Container -->
@@ -63,7 +65,7 @@
         <!-- Left Toolbar - Initially shown, toggle "hidden" class to show/hide -->
         <div 
 			id="leftSidebar" 
-			class="flex flex-col fixed h-screen w-64 bg-gray-800 text-white p-4 space-y-4 overflow-y-auto transition-all ease-in-out duration-300 z-10">
+			class="border-r-4 border-indigo-800/50 flex z-20 absolute left-0 flex-col h-screen w-72 bg-gray-800 text-white p-4 space-y-4 overflow-y-auto transition-all ease-in-out duration-300 ">
             <!-- ... Your content here ... -->
 			<h2 class="text-2xl pl-10">
 				Layers
@@ -71,11 +73,11 @@
         </div>
 
         <!-- Main Content -->
-        <div class="flex relative p-4">
+        <div class="flex relative px-4 w-full">
             <!--Left Toggle Button -->
             <button 
 				onclick="toggleSidebarL()" 
-				class="absolute top-4 left-4 z-20 p-1 bg-blue-500 text-white shadow-lg hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300 transition-transform duration-300">
+				class="absolute top-4 left-4 z-30 p-1 bg-blue-500 text-white shadow-lg hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300 transition-transform duration-300">
                 <svg 
 					id="toggleIconL" 
 					xmlns="http://www.w3.org/2000/svg" 
@@ -89,28 +91,11 @@
 					stroke-width="2" d="M9 5l7 7-7 7" />
                 </svg>
             </button>
-			<!-- Navbar Toggle Button -->
-			<!-- <button 
-				onclick="toggleNavbar()" 
-				class="pl-72 absolute z-20 rounded top-16 left-4 p-2 bg-gradient-to-r from-blue-500 to-indigo-800 text-white shadow-lg hover:bg-yellow-600 focus:outline-none focus:ring focus:ring-blue-300 transition-transform duration-300"
-				id="nav-adjustment">
-                <svg 
-					id="toggleIconNav" 
-					xmlns="http://www.w3.org/2000/svg" 
-					class="w-6 h-6 transform rotate-180" 
-					fill="none" 
-					viewBox="0 0 24 24" 
-					stroke="currentColor">
-                  <path 
-				  	stroke-linecap="round" 
-					stroke-linejoin="round" 
-					stroke-width="2" d="M15 19l-7-7 7-7" />
-                </svg>
-            </button> -->
+			
             <!-- Right Toggle Button -->
             <button 
 				onclick="toggleSidebarR()" 
-				class="absolute top-4 right-4 z-20 p-1 bg-blue-500 text-white shadow-lg hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300 transition-transform duration-300">
+				class="absolute top-4 right-4 z-30 p-1 bg-blue-500 text-white shadow-lg hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-300 transition-transform duration-300">
                 <svg 
 					id="toggleIconR" 
 					xmlns="http://www.w3.org/2000/svg" 
@@ -124,25 +109,25 @@
 					stroke-width="2" d="M15 19l-7-7 7-7" />
                 </svg>
             </button>
-            <canvas id="gridCanvas" class="w-full h-full border border-gray-300"></canvas>
+            <canvas id="gridCanvas" class="z-10 container mx-auto bg-gray-400"></canvas>
         </div>
 
         <!-- Right Toolbar - Initially shown, toggle "hidden" class to show/hide -->
         <div 
 			id="rightSidebar" 
-			class="w-64 bg-gray-800 text-white fixed space-y-4 right-0 h-screen overflow-y-auto transition-all ease-in-out duration-300">
+			class="border-l-4 border-indigo-800/50 p-4 absolute w-72 bg-gray-800 text-white z-20 space-y-4 right-0 h-screen overflow-y-auto transition-all ease-in-out duration-300">
             <!-- ... Your content here ... -->
 			<!-- 
-			opacity settings - number
-			wall settings - color, width
+			opacity settings - number [X]
+			wall settings - color, width [X]
 			floor settings - color
 			shadow settings -
 			hatching - square/random - hatching thickness
-			eraser, room, stamp -->
-
+			eraser, room, stamp 
+			TODO: Add actual logic to back these up-->
 			
 
-			<div class="border-l border-gray-400/30 mr-12">
+			<div class=" overflow-y-scroll ">
 				<!-- Walls Settings -->
 				<div class="bg-gray-800 p-2 mt-6 rounded-lg w-full">
 					<h3 class="text-xl font-semibold mb-2 text-white">Walls</h3>
@@ -160,7 +145,7 @@
 					<div class="flex items-center justify-between">
 						<label for="walls-width" class="text-white text-sm font-medium mr-6">Width:</label>
 						<div class="flex items-center w-full">
-							<input id="walls-width-number" type="number" class="w-10 p-2 bg-gray-700 text-white border border-gray-600 rounded focus:outline-none focus:border-blue-500" placeholder="5" />
+							<input id="walls-width-number" type="number" class="w-10 p-2 bg-gray-700 text-white border border-gray-600 rounded focus:outline-none focus:border-blue-500" placeholder="1" />
 							<input id="walls-width" type="range" min="1" max="100" class="w-28 m-2 h-3 bg-gray-700 border-gray-300 rounded cursor-pointer" />
 						</div>
 					</div>
@@ -191,7 +176,9 @@
 							<input 
 								id="floor-color" 
 								type="color" 
-								class="w-8 h-8 rounded border-0 cursor-pointer" />
+								class="w-8 h-8 rounded border-0 cursor-pointer" 
+								placeholder="#fff"
+							/>
 							<input 
 								id="floor-color-hex" 
 								type="text" 
@@ -227,9 +214,81 @@
 						</div>
 					</div>
 					<div class="w-full m-4 h-0.5 border-t"></div>
+				</div>
+
+				<!-- Tools -->
+				<div class="p-2 tools">
+					<h3 class="text-xl font-semibold mb-4 text-white">Tools</h3>
+					<!-- hatching tool -->
+					<div class="items-center justify-between">
+						<div class="flex">
+							<p class="text-l">Hatching Tool </p>
+							<button 
+								class="m-2 px-2 rounded rounded-md text-white bg-indigo-600 border border-white hover:bg-indigo-500">
+								Select
+							</button>
+							<button 
+								class="m-2 px-2 pt-1 rounded rounded-md text-white bg-indigo-600 border border-white hover:bg-indigo-500">
+								^
+							</button>
+
+						</div>
+						<!-- hatching size -->
+						<div class="flex mt-2">
+							<p class="text-sm mt-2">Size</p>
+							<div class="flex items-center w-full ml-3">
+								<input 
+									id="hatching-size-number" 
+									type="number" 
+									class="w-10 p-2 bg-gray-700 text-white border border-gray-600 rounded focus:outline-none focus:border-blue-500" 
+									placeholder="5" 
+								/>
+								<input 
+									id="hatching-size" 
+									type="range" 
+									min="1"
+									max="100" 
+									class="m-2 w-24 h-2 bg-gray-700 border-gray-300 rounded cursor-pointer" 
+								/>
+							</div>
+						</div>
+						<!-- hatching opacity -->
+						<div class="flex mt-2">
+							<p class="text-sm mt-2">Opacity</p>
+							<div class="flex items-center w-full ml-3">
+								<input 
+									id="hatching-opacity-number" 
+									type="number" 
+									class="w-10 p-2 bg-gray-700 text-white border border-gray-600 rounded focus:outline-none focus:border-blue-500" 
+									placeholder="5" 
+								/>
+								<input 
+									id="hatching-opacity" 
+									type="range" 
+									min="1" 
+									max="100" 
+									class="m-2 w-24 h-2 bg-gray-700 border-gray-300 rounded cursor-pointer" 
+								/>
+							</div>
+						</div>
+					</div>
+					<!-- room tool -->
+					<div class="items-center justify-between">
+						<div class="flex">
+							<p class="text-l">Room Tool </p>
+							<button 
+								class="m-2 px-2 rounded rounded-md text-white bg-indigo-600 border border-white hover:bg-indigo-500">
+								Select
+							</button>
+							<button 
+								class="m-2 px-2 pt-1 rounded rounded-md text-white bg-indigo-600 border border-white hover:bg-indigo-500">
+								^
+							</button>
+
+						</div>
 					</div>
 				</div>
-				
+
 			<!--End of right sidebar-->
 			</div>
         </div>
