@@ -115,7 +115,7 @@
         <!-- Right Toolbar - Initially shown, toggle "hidden" class to show/hide -->
         <div 
 			id="rightSidebar" 
-			class="border-l-4 border-indigo-800/50 p-4 absolute w-72 bg-gray-800 text-white z-20 space-y-4 right-0 h-screen overflow-y-auto transition-all ease-in-out duration-300">
+			class="border-l-4 border-indigo-800/50 p-4 absolute w-80 bg-gray-800 text-white z-20 space-y-4 right-0 h-screen overflow-y-auto transition-all ease-in-out duration-300">
             <!-- ... Your content here ... -->
 			<!-- 
 			opacity settings - number [X]
@@ -128,45 +128,9 @@
 			
 
 			<div class=" overflow-y-scroll ">
-				<!-- Walls Settings -->
-				<div class="bg-gray-800 p-2 mt-6 rounded-lg w-full">
-					<h3 class="text-xl font-semibold mb-2 text-white">Walls</h3>
-					<!-- Colour Picker -->
-					<div class="flex items-center justify-between mb-4">
-						<label for="walls-color" class="text-white text-sm font-medium mr-7">Color:</label>
-						<div class="flex items-center">
-							<input id="walls-color" type="color" class="w-8 h-8 rounded border-0 cursor-pointer" />
-							<input id="walls-color-hex" type="text" class="w-full ml-3 text-sm p-2 bg-gray-700 text-white border border-gray-600 rounded focus:outline-none focus:border-blue-500" 
-								placeholder="#000000"
-							/>
-						</div>
-					</div>
-					<!-- Width Selector -->
-					<div class="flex items-center justify-between">
-						<label for="walls-width" class="text-white text-sm font-medium mr-6">Width:</label>
-						<div class="flex items-center w-full">
-							<input id="walls-width-number" type="number" class="w-10 p-2 bg-gray-700 text-white border border-gray-600 rounded focus:outline-none focus:border-blue-500" placeholder="1" />
-							<input id="walls-width" type="range" min="1" max="100" class="w-28 m-2 h-3 bg-gray-700 border-gray-300 rounded cursor-pointer" />
-						</div>
-					</div>
-					<!-- opacity settings -->
-					<div class="flex items-center justify-between opacity-settings mt-2">
-						<p class="text-sm">Opacity: </p>
-						<div class="flex items-center w-full ml-3">
-							<input id="walls-opacity-number" type="number" class="w-10 p-2 bg-gray-700 text-white border border-gray-600 rounded focus:outline-none focus:border-blue-500" placeholder="5" />
-							<input id="walls-opacity" type="range" min="1" max="100" class="w-28 m-2 h-2 bg-gray-700 border-gray-300 rounded cursor-pointer" />
-						</div>
-					</div>
-					<div class="w-full m-4 h-0.5 border-t"></div>
-
-	
-				</div>
-				<!--end of wall settings-->
-				
-
 				<!-- floor settings -->
 				<div class="p-2 floor-settings">
-					<h3 class="text-xl font-semibold mb-4 text-white">Floor</h3>
+					<h3 class="text-xl font-semibold mb-4 text-white">General Settings</h3>
 					<!-- floor color -->
 					<div class="flex items-center justify-between mb-4">
 						<label 
@@ -176,13 +140,13 @@
 							<input 
 								id="floor-color" 
 								type="color" 
-								class="w-8 h-8 rounded border-0 cursor-pointer" 
+								class=" interactive-inputs w-8 h-8 rounded border-0 cursor-pointer" 
 								placeholder="#fff"
 							/>
 							<input 
 								id="floor-color-hex" 
 								type="text" 
-								class="w-full ml-3 text-sm p-2 bg-gray-700 text-white border border-gray-600 rounded focus:outline-none focus:border-blue-500" 
+								class="interactive-inputs w-full ml-3 text-sm p-2 bg-gray-700 text-white border border-gray-600 rounded focus:outline-none focus:border-blue-500" 
 								placeholder="#000000"
 							/>
 						</div>
@@ -196,11 +160,11 @@
 							<input 
 								id="grid-color" 
 								type="color" 
-								class="w-8 h-8 rounded border-0 cursor-pointer" />
+								class="interactive-inputs w-8 h-8 rounded border-0 cursor-pointer" />
 							<input 
 								id="grid-color-hex" 
 								type="text" 
-								class="w-full ml-3 text-sm p-2 bg-gray-700 text-white border border-gray-600 rounded focus:outline-none focus:border-blue-500" 
+								class="interactive-inputs w-full ml-3 text-sm p-2 bg-gray-700 text-white border border-gray-600 rounded focus:outline-none focus:border-blue-500" 
 								placeholder="#000000"
 							/>
 						</div>
@@ -209,8 +173,36 @@
 					<div class="flex items-center justify-between grid-thickness mt-2">
 						<p class="text-sm">Grid Thickness: </p>
 						<div class="flex items-center w-full ml-3">
-							<input id="grid-thickness-number" type="number" class="w-10 p-2 bg-gray-700 text-white border border-gray-600 rounded focus:outline-none focus:border-blue-500" placeholder="5" />
-							<input id="grid-thickness" type="range" min="1" max="100" class="m-2 w-24 h-2 bg-gray-700 border-gray-300 rounded cursor-pointer" />
+							<input 
+								id="grid-thickness-number" 
+								type="number" 
+								class="interactive-inputs w-12 p-2 bg-gray-700 text-white border border-gray-600 rounded focus:outline-none focus:border-blue-500" 
+								placeholder="3" />
+							<input 
+								id="grid-thickness" 
+								type="range" 
+								min="0" 
+								max="6" 
+								class="interactive-inputs m-2 w-28 h-2 bg-gray-700 border-gray-300 rounded cursor-pointer" />
+						</div>
+					</div>
+					<!-- opacity settings -->
+					<div class="flex items-center justify-between opacity-settings mt-2">
+						<p class="text-sm">Grid Opacity: </p>
+						<div class="flex items-center w-full ml-3">
+							<input 
+								id="grid-opacity-number" 
+								type="number" 
+								nim="0"
+								max="10"
+								class="interactive-inputs w-12 p-2  px-0.5 bg-gray-700 text-white border border-gray-600 rounded focus:outline-none focus:border-blue-500" 
+								placeholder="5" />
+							<input 
+								id="grid-opacity" 
+								type="range" 
+								min="0" 
+								max="10" 
+								class="interactive-inputs w-28 m-2 h-2 bg-gray-700 border-gray-300 rounded cursor-pointer" />
 						</div>
 					</div>
 					<div class="w-full m-4 h-0.5 border-t"></div>
@@ -219,16 +211,60 @@
 				<!-- Tools -->
 				<div class="p-2 tools">
 					<h3 class="text-xl font-semibold mb-4 text-white">Tools</h3>
-					<!-- hatching tool -->
-					<div class="items-center justify-between">
-						<div class="flex">
-							<p class="text-l">Hatching Tool </p>
+					<!-- Walls Settings -->
+					<div class="bg-gray-800 p-2 mt-6 rounded-lg w-full">
+						<div class="flex items-center">
+							<h3 class="text-xl font-semibold mb-2 text-white">Wall Tool</h3>
 							<button 
-								class="m-2 px-2 rounded rounded-md text-white bg-indigo-600 border border-white hover:bg-indigo-500">
+								class="m-2 px-2 rounded rounded-md text-white bg-indigo-600 border border-white hover:bg-indigo-500"
+								onclick="selectTool('hatching')">
 								Select
 							</button>
 							<button 
-								class="m-2 px-2 pt-1 rounded rounded-md text-white bg-indigo-600 border border-white hover:bg-indigo-500">
+								class="m-2 px-2 pt-1 rounded rounded-md text-white bg-indigo-600 border border-white hover:bg-indigo-500"
+								onclick="minimizeTool('hatching')">
+								^
+							</button>
+
+						</div>
+						<!-- Colour Picker -->
+						<div class="flex items-center justify-between mb-4">
+							<label for="walls-color" class="text-white text-sm font-medium mr-7">Color:</label>
+							<div class="flex items-center">
+								<input id="walls-color" type="color" class="w-8 h-8 rounded border-0 cursor-pointer" />
+								<input id="walls-color-hex" type="text" class="w-full ml-3 text-sm p-2 bg-gray-700 text-white border border-gray-600 rounded focus:outline-none focus:border-blue-500" 
+									placeholder="#000000"
+								/>
+							</div>
+						</div>
+						<!-- Width Selector -->
+						<div class="flex items-center justify-between">
+							<label for="walls-width" class="text-white text-sm font-medium mr-6">Width:</label>
+							<div class="flex items-center w-full">
+								<input id="walls-width-number" type="number" class="w-12 p-2 bg-gray-700 text-white border border-gray-600 rounded focus:outline-none focus:border-blue-500" placeholder="1" />
+								<input id="walls-width" type="range" min="1" max="100" class="w-28 m-2 h-3 bg-gray-700 border-gray-300 rounded cursor-pointer" />
+							</div>
+						</div>
+						
+						<div class="w-full m-4 h-0.5 border-t"></div>
+
+
+						
+		
+					</div>
+					<!--end of wall settings-->
+					<!-- hatching tool -->
+					<div>
+						<div class="flex items-center">
+							<p class="text-l">Hatching Tool </p>
+							<button 
+								class="m-2 px-2 rounded rounded-md text-white bg-indigo-600 border border-white hover:bg-indigo-500"
+								onclick="selectTool('hatching')">
+								Select
+							</button>
+							<button 
+								class="m-2 px-2 pt-1 rounded rounded-md text-white bg-indigo-600 border border-white hover:bg-indigo-500"
+								onclick="minimizeTool('hatching')">
 								^
 							</button>
 
@@ -273,8 +309,8 @@
 						</div>
 					</div>
 					<!-- room tool -->
-					<div class="items-center justify-between">
-						<div class="flex">
+					<div>
+						<div class="flex items-center">
 							<p class="text-l">Room Tool </p>
 							<button 
 								class="m-2 px-2 rounded rounded-md text-white bg-indigo-600 border border-white hover:bg-indigo-500">
