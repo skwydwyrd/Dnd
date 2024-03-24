@@ -2,7 +2,7 @@
 
 <html>
     <head>
-        <link href="/dist/output.css" rel="stylesheet" />
+        <!-- <link href="/dist/output.css" rel="stylesheet" /> -->
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
 
@@ -63,18 +63,29 @@
             <h2 class="text-white text-2xl m-4 p-4">
                 Statblock Generator Page
             </h2>
-            <select name="monster-preset" id="monster-preset">
+            <div id="monster-preset-container"></div>
 
-            </select>
-
-            <!-- TEST -->
+            <!-- Dummy Stats -->
+            <div class="text-white mt-8 border-2 border-red-500/40 p-4 rounded-md">
+                <h1 id="mon-name" class="text-red-800 text-2xl">
+                    Name
+                </h1>
+                <div class="flex mb-4 text-gray-400 space-x-3 italic">
+                    <p id="size">Size </p>
+                    <p id="type">Type </p>
+                    <p id="subtype">Subtype </p>
+                    <p id="alignment">Alignment </p>
+                </div>
+                <hr/>
+                <div class="text-red-800 font-bold">
+                    <h2 id="armor-class "class="mt-4">AC: </h2>
+                    <h2 id="hit-points">HP: </h2>
+                    <h2 id="speed">Speed: </h2>
+                </div>
+            </div>
+            
 
         </main>
-        <script>
-            const elements = document.querySelectorAll('.custom-class')
-            elements.forEach(element =>{
-                element.style.color = 'blue'
-            })
-        </script>
+        <script src="../scripts/statblock-generator.js" type="module"></script>
     </body>
 </html>
