@@ -85,6 +85,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
 		const tempGridThickness = localStorage.getItem('gridThickness') || '3';
 		const tempGridOpacity = localStorage.getItem('gridOpacity') || '5';
 		const tempFloorColor = localStorage.getItem('floorColor') || '#000000';
+
 		if (tempGridColor) {
 			gridColorElement.value = tempGridColor; 
 			gridColorElementHex.value = tempGridColor
