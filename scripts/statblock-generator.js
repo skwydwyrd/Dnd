@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     const input2 = document.getElementById('input2')
     const submit = document.getElementById('submit-button')
     const info_container = document.getElementById('output')
+    
     const monsterContainer = document.getElementById('monster-preset-container');
     const select = document.createElement('select');
     select.className = 'mb-4 bg-gray-700 text-white border border-gray-600 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer';
@@ -49,7 +50,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     async function displayData() {
         try {
             const data = await getData();
-
+            info_container.classList.remove('hidden')
             info_container.innerHTML = '';
             const infoDiv = createInfoDiv(data);
             info_container.appendChild(infoDiv);
@@ -83,6 +84,42 @@ document.addEventListener('DOMContentLoaded',()=>{
             `;
         }
         return div;
+    }
+    function roll(roll_type, dice_formula, damagesJson = '[]'){
+        try {
+            const decodedJson = decodeURIComponent(damagesJson); 
+
+           
+            const damages = JSON.parse(decodedJson);
+            
+            const displayElement = document.getElementById('roll-result-display');
+            displayElement.classList.remove('hidden');
+    
+            if (damages.length > 0){
+                let resultsHTML = `<div class="flex items-center"><strong>Damage Roll:</strong>`;
+                let emojiTOdamage = {
+                    'piercing' : '🗡',
+                    'acid' : '🦠'
+                }
+                damages.forEach((damage, index) => {
+                    let roll_result = rollDice(damage['damage_dice']);
+                    let sep = damages.length > 1 && index < damages.length-1 ? '<span class="mx-">and</span>' : ''                    
+                    resultsHTML += `
+                        <div class="items-center space-x-2 py-2">
+                            <p class="font-semibold ml-1"> ${roll_result} points of ${damage['damage_type']['index']} damage ${sep}</p>
+                        </div>`
+                });
+                
+                displayElement.innerHTML = resultsHTML + '</div>'
+            }
+            else{
+            const roll_result = rollDice(dice_formula)
+            displayElement.innerHTML = `<strong>${roll_type} | </strong> ${roll_result}`
+            }
+
+        } catch (error) {
+            console.error("Error parsing JSON: ", error)
+        }
     }
     
     function formatBasicInfoMON(data) {
@@ -376,42 +413,7 @@ document.addEventListener('DOMContentLoaded',()=>{
                     ${message}
                 </button>`
     }
-    function roll(roll_type, dice_formula, damagesJson = '[]'){
-        try {
-            const decodedJson = decodeURIComponent(damagesJson); 
-
-           
-            const damages = JSON.parse(decodedJson);
-            
-            const displayElement = document.getElementById('roll-result-display');
-            displayElement.classList.remove('hidden');
     
-            if (damages.length > 0){
-                let resultsHTML = `<div class="flex items-center"><strong>Damage Roll:</strong>`;
-                let emojiTOdamage = {
-                    'piercing' : '🗡',
-                    'acid' : '🦠'
-                }
-                damages.forEach((damage, index) => {
-                    let roll_result = rollDice(damage['damage_dice']);
-                    let sep = damages.length > 1 && index < damages.length-1 ? '<span class="mx-">and</span>' : ''                    
-                    resultsHTML += `
-                        <div class="items-center space-x-2 py-2">
-                            <p class="font-semibold ml-1"> ${roll_result} points of ${damage['damage_type']['index']} damage ${sep}</p>
-                        </div>`
-                });
-                
-                displayElement.innerHTML = resultsHTML + '</div>'
-            }
-            else{
-            const roll_result = rollDice(dice_formula)
-            displayElement.innerHTML = `<strong>${roll_type} | </strong> ${roll_result}`
-            }
-
-        } catch (error) {
-            console.error("Error parsing JSON: ", error)
-        }
-    }
 
     
     function rollDice(dice_formula){

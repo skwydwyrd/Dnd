@@ -1,3 +1,14 @@
+function generateInitiativeTracker(){
+    const div = document.getElementById('initiative')
+    for (let step = 0; step < 30; step ++){
+        const init_input = document.createElement('input')
+        init_input.type = 'text'
+        init_input.id = `init-${step}`
+        init_input.placeholder = `${step}`
+        init_input.classList.add('bg-gray-500 m-1.5 mt-2.5 rounded rounded-md p-1')
+        div.appendChild(init_input)
+    }
+}
 function proccessCharInfo() {
     // Get the value from the input field
     let charName = document.getElementById('character-name').value;
@@ -108,5 +119,8 @@ function showNotification(message, messageColor){
 
 }
 
-document.addEventListener('DOMContentLoaded',loadCharactersFromStorage)
+document.addEventListener('DOMContentLoaded',()=>{
+    generateInitiativeTracker()
+    loadCharactersFromStorage()
+})
 
