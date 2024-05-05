@@ -2,134 +2,91 @@
 
 <html>
     <head>
-        <!-- <link href="/dist/output.css" rel="stylesheet" /> -->
+        <link href="/src/input.css" rel="stylesheet" /> -->
         <script src="https://cdn.tailwindcss.com"></script>
+
     </head>
 
     <body class="bg-gray-950 font-mono text-gray-400">
-        <div id="navbar" class="sticky top-0 z-50">
-            <nav class="space-x-2 flex p-2 h-full w-full text-sm  bg-gray-900 border-r-2 border-indigo-800 items-center justify-center text-center">
-                <a href='../index.html'>
-                    <img
-                        class="object-fill w-24 h-10 rounded-md hover:bg-indigo-800 items-center justify-center"
-                        src="/images/DNDampersand.jpeg"
-                        alt="Logo/Home"
-                        
-                        />
-                <a 
-                    class="items-center hover:bg-indigo-800 rounded-lg p-2" 
-                    href="/pages/categories.html">
-                    Categories
-                </a>
-                <a
-                    class="hover:bg-indigo-800 rounded-lg p-2" 
-                    href="/pages/new-releases.html">
-                    New Releases
-                </a>
-                <a
-                    class="hover:bg-indigo-800 rounded-lg p-2" 
-                    href="/pages/combat-tracker.html">
-                    Combat Ttracker
-                </a>
-                <a
-                    class=" hover:bg-indigo-800 rounded-lg p-2"
-                    href="#">
-                    Statblack Generator
-                </a>
-                <a 
-                    class="hover:bg-indigo-800 rounded-lg p-2" 
-                    href="/pages/encounter-generator.html">
-                    Encounter Generator
-                </a>
-                <a
-                    class="hover:bg-indigo-800 rounded-lg p-2" 
-                    href="/pages/player-resources.html">
-                    Player Resurces
-                </a>
-                <a
-                    class="hover:bg-indigo-800 rounded-lg p-2" 
-                    href="/pages/dm-resources.html">
-                    Game Master Resoreces
-                </a>
-                <a
-                    class="hover:bg-indigo-800 rounded-lg p-2" 
-                    href="/pages/books-rules.html">
-                    Books and Rules
-                </a>
-    
-            </nav>
-        </div>
-        <main class="pl-64 text-white">
-            <h2 class="text-white text-2xl m-4 p-4">
+       
+        <main class="text-white">
+            <h2 class="text-white text-2xl m-4 p-4 text-center">
                 Statblock Generator Page
             </h2>
             <body class="bg-gray-800 flex items-center justify-center overflow-y-auto">
-                <div>
-                    <div id="notification" class="hidden p-2"></div>
-                    <div class="sticky top-3 bg-opacity-80 z-10 text-white bg-blue-700 rounded p-1 ml-2 m-4 hidden" id="roll-result-display"></div>
-                    <div class="w-full max-w-4xl p-8 bg-gray-900 bg-opacity-30 rounded-xl shadow-xl backdrop-blur-md">
-                       
-                        <h1 class="text-white text-3xl font-bold text-center mb-6">
-                            Statblock Finder
-                        </h1>
-                        <h2 class="text-white text-l text-center mb-6">
-                            Find any statblock iin the 5th Edition Dungeons and Dragons SRD (System Reference Document).
-                            The SRD does not contain all of the monsters in 5th Edition.
+                <div class="flex flex-row items-start justify-between px-8 py-4">
+                    <!-- Left Section: Inputs -->
+                    <div class="sticky top-[20%] w-1/3 mr-6 space-y-6 bg-gray-900 bg-opacity-30 p-8 rounded-xl shadow-xl backdrop-blur-md">
+                        <div class="sticky top-[70px] flex justify-center items-center bg-opacity-80 z-10 text-white bg-blue-700 rounded p-1 ml-2 m-4 hidden"
+                             id="roll-result-display"></div>
+                        <h1 class="text-3xl font-bold text-white text-center">Statblock Finder</h1>
+                        <h2 class="text-lg text-white text-center mb-4">
+                            Find any statblock in the 5th Edition Dungeons and Dragons SRD (System Reference Document).
+                            Note: The SRD does not contain all of the monsters in 5th Edition.
                         </h2>
+                        <input list="common-searches" id="search-input" type="text"
+                               class="w-full p-4 rounded-lg bg-white bg-opacity-10 placeholder-gray-300 text-white border-none focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                               placeholder="Search for monsters, spells, etc.">
+                        <datalist id="common-searches">
+                            <option value="monsters">
+                            <option value="classes">
+                            <option value="features">
+                            <option value="spells">
+                        </datalist>
                         <div id="monster-preset-container"></div>
-                        <div class="space-y-4 mb-6">
-                            <input list="common-searches" id="search-input" type="text" class="w-full p-4 rounded-lg bg-white bg-opacity-10 placeholder-gray-300 text-white border-none focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="Search for monsters, spells, etc.">
-                            <datalist id="common-searches">
-                                <option value="monsters">
-                                <option value="classes">
-                                <option value="features">
-                                <option value="spells">
-                            </datalist>
-                            <input list="common-searches2" type="text" id="input2" class="w-full p-4 rounded-lg bg-white bg-opacity-10 placeholder-gray-300 text-white border-none focus:ring-2 focus:ring-blue-500 focus:outline-none" placeholder="Type the specific thing you want" />
-                            <datalist id="common-searches2">
-                                <option value="aboleth">
-                                <option value="goblin">
-                                <option value="adult black dragon"></option>
-                                <option value="fireball">
-                                <option value="rage">
-                                <option value="paladin">
-                            </datalist>
-                        </div>
-                        
-                        <button id="submit-button" class="w-full py-3 bg-blue-700 hover:bg-blue-600 text-white font-semibold rounded-lg transition duration-300">
+                        <button id="submit-button"
+                                class="w-full py-3 bg-blue-700 hover:bg-blue-600 text-white font-semibold rounded-lg transition duration-300">
                             Submit
                         </button>
-                        <div class='hidden mt-6 p-4 bg-gray-800 bg-opacity-50 rounded-lg text-white' id="output">
-                            <!-- Output will be displayed here -->
-                        </div>
+                        <div id="notification" class="hidden p-2 text-white"></div>
+                        
                     </div>
+                
+                    <!-- Right Section: Output -->
+                    <div class='w-2/3 mt-6 p-8 bg-gray-800 bg-opacity-50 rounded-xl shadow-xl text-white' id="output">
+                        <!-- Output will be displayed here -->
+                        <p class="text-center">Output will appear here...</p>
+                    </div>
+
+                </div>
+
+                <div class="max-w-4xl mx-auto p-6 bg-gray-800 rounded-lg shadow-lg">
+                    <h2 class="text-xl font-bold text-white mb-6">Enter D&D Monster Statblock</h2>
+                    <form class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <input class="form-input" type="text" placeholder="Name" name="name">
+                        <input class="form-input" type="text" placeholder="Size" name="size">
+                        <input class="form-input" type="text" placeholder="Type" name="type">
+                        <input class="form-input" type="text" placeholder="Alignment-Lawful->Chaotic" name="alignment1">
+                        <input class="form-input" type="text" placeholder="Alignment-Evil->Good" name="alignment2">
+                        <input class="form-input" type="text" placeholder="Armor Class" name="armor_class">
+                        <input class="form-input" type="text" placeholder="Armor Class Type" name="armor_class_type">
+                        <input class="form-input" type="text" placeholder="Hit Dice" name="hit_dice">
+                        <input class="form-input" type="text" placeholder="Speed" name="speed">
+                        <input class="form-input" type="text" placeholder="Strength" name="strength">
+                        <input class="form-input" type="text" placeholder="Dexterity" name="dexterity">
+                        <input class="form-input" type="text" placeholder="Constitution" name="constitution">
+                        <input class="form-input" type="text" placeholder="Intelligence" name="intelligence">
+                        <input class="form-input" type="text" placeholder="Wisdom" name="wisdom">
+                        <input class="form-input" type="text" placeholder="Charisma" name="charisma">
+                        <input class="form-input" type="text" placeholder="Saving Throws" name="saving_throws">
+                        <input class="form-input" type="text" placeholder="Skills" name="skills">
+                        <input class="form-input" type="text" placeholder="Senses" name="senses">
+                        <input class="form-input" type="text" placeholder="Languages" name="languages">
+                        <input class="form-input" type="text" placeholder="Challenge Rating" name="challenge_rating">
+                        <textarea class="form-textarea col-span-1 md:col-span-2 lg:col-span-3" placeholder="Abilities" name="abilities"></textarea>
+                        <textarea class="form-textarea col-span-1 md:col-span-2 lg:col-span-3" placeholder="Actions" name="actions"></textarea>
+                        <textarea class="form-textarea col-span-1 md:col-span-2 lg:col-span-3" placeholder="Legendary Actions" name="legendary_actions"></textarea>
+                        <button class="col-span-1 md:col-span-2 lg:col-span-3 bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition duration-300">Submit</button>
+                    </form>
                 </div>
                 
-            <!-- TODO: fix script links -->
-            <!-- <script src="../Lessons/APILesson/script.js"></script> -->
 
-            <!-- Dummy Stats -->
-            <!-- <div class="text-white mt-8 border-2 border-red-500/40 p-4 rounded-md">
-                <h1 id="mon-name" class="text-red-800 text-2xl">
-                    Name
-                </h1>
-                <div class="flex mb-4 text-gray-400 space-x-3 italic">
-                    <p id="size">Size </p>
-                    <p id="type">Type </p>
-                    <p id="subtype">Subtype </p>
-                    <p id="alignment">Alignment </p>
-                </div>
-                <hr/>
-                <div class="text-red-800 font-bold">
-                    <h2 id="armor-class "class="mt-4">AC: </h2>
-                    <h2 id="hit-points">HP: </h2>
-                    <h2 id="speed">Speed: </h2>
-                </div>
-            </div> -->
-            
 
         </main>
-        <script src="../scripts/statblock-generator.js" type="module"></script>
+
+        
+        <script src="../scripts/statblock-generator.js"></script>
+        <script src="../scripts/navbar.js"></script>
 
     </body>
 </html>
