@@ -8,14 +8,16 @@ let selectedMonster = ''
 document.addEventListener('DOMContentLoaded',()=>{
     const base_url = 'https://www.dnd5eapi.co/api/'
 
-    const input1 = document.getElementById('search-input')
-    const input2 = document.getElementById('input2')
-    const submit = document.getElementById('submit-button')
-    const info_container = document.getElementById('output')
-    
+    const input1 = document.getElementById('search-input');
+    const input2 = document.getElementById('input2');
+    const submit = document.getElementById('submit-button');
+    const info_container = document.getElementById('output');
+    const infoToggleButton = document.getElementById('info-toggler');
     const monsterContainer = document.getElementById('monster-preset-container');
+
     const select = document.createElement('select');
     select.className = 'mb-4 bg-gray-700 text-white border border-gray-600 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer';
+
     // Placeholder option
     const firstOption = document.createElement('option');
     firstOption.value = '';
@@ -38,7 +40,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     
     async function getData() {
         try {
-            const endpoint = `${base_url}${input1.value}/${selectedMonster}`
+            const endpoint = `${base_url}monsters/${selectedMonster}`
             console.log(endpoint)
             const response = await fetch(endpoint
                 .replaceAll(' ','-')
@@ -66,31 +68,24 @@ document.addEventListener('DOMContentLoaded',()=>{
     function createInfoDiv(data) {
         const div = document.createElement('div');
         div.className = 'p-4 bg-opacity-20 bg-black rounded-lg shadow-lg backdrop-blur-sm backdrop-filter';
-        if (input1.value === 'monster' || input1.value === 'monsters'){
-            div.innerHTML = `
-                <div class="rounded text-white">${formatBasicInfoMON(data)}</div>
-                <div class="rounded text-white">${formatSpeed(data)}</div>
-                <div class="rounded text-white">${formatAbilities(data)}</div>
-                <div class="rounded text-white">${formatAttributes(data, 'Saving Throw')}</div>
-                <div class="rounded text-white">${formatAttributes(data, 'Skill')}</div>
-                <div class="rounded text-white">${formatMoreAttributes(data)}</div>
-                <div class="rounded text-white">${formatSpecialAbilities(data)}</div>
-                <div class="rounded text-white">${formatActions(data)}</div>
-                <div class="rounded text-white">${formatLegnedaryActions(data)}</div>
-            `;
-        }
-        else if (input1.value === 'spell' || input1.value === 'spells'){
-            div.innerHTML = `
-            <div class="rounded text-white">${formatBasicInfoSPL(data)}</div>
-            <div class="rounded text-white">${formatDesc(data)}</div>
-            <div class="rounded text-white">${formatClassAccess(data)}</div>
-            <div class="rounded text-white">${formatOtherAccess(data)}</div>
-            `;
-        }
+        div.innerHTML = `
+            <div class="rounded text-white">${formatBasicInfoMON(data)}</div>
+            <div class="rounded text-white">${formatSpeed(data)}</div>
+            <div class="rounded text-white">${formatAbilities(data)}</div>
+            <div class="rounded text-white">${formatAttributes(data, 'Saving Throw')}</div>
+            <div class="rounded text-white">${formatAttributes(data, 'Skill')}</div>
+            <div class="rounded text-white">${formatMoreAttributes(data)}</div>
+            <div class="rounded text-white">${formatSpecialAbilities(data)}</div>
+            <div class="rounded text-white">${formatActions(data)}</div>
+            <div class="rounded text-white">${formatLegnedaryActions(data)}</div>
+        `;
         return div;
     }
 
-
+    infoToggleButton.addEventListener('click',()=>{
+        const info = document.getElementById('info');
+        info.classList.toggle('hidden')
+    })
     function formatBasicInfoMON(data) {
         //dnd info
         // hp format: (num of dice)d(die size) + (modifier)
@@ -153,7 +148,7 @@ document.addEventListener('DOMContentLoaded',()=>{
             ;
             
         console.log(proficiencies)
-        let htmlContent = '<div class="flex items-center">'
+        let htmlContent = `<div class="flex items-center">${type}s:`
         if (proficiencies.length > 0){
             proficiencies.forEach((proficiency)=>{
                 const mod = proficiency.split(' ')
@@ -241,6 +236,9 @@ document.addEventListener('DOMContentLoaded',()=>{
 
     monsterContainer.appendChild(select);
 })
+    
+
+
     function formatSpecialAbilities(data){
         let htmlContent = '<hr><br><div>'
         for (let step = 0; step < data['special_abilities'].length; step++) {
