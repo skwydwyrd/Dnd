@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // add a / at the end
     const basePath = window.location.pathname.split('/').slice(0,-1).join('/') + '/';
     console.log(basePath);
-
+    // TODO: make it work so that if the screen is small, only player resources, game master resources, books and rules, and new releases show up
     const links = [
         { name: 'Categories', href: 'categories.html'},
         { name: 'New Releases', href: 'new-releases.html'},
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const navbarHTML = `
         <div id="navbar" class="sticky top-0 z-50">
-            <nav class="space-x-2 flex p-2 h-full w-full text-sm bg-gray-900 border-r-2 border-indigo-800 items-center justify-center text-center">
+            <nav class="space-x-2 flex p-2 h-full w-full text-sm bg-gray-800 bg-opacity-50 border-r-2 border-indigo-800 items-center justify-center text-center">
                 <a href='../index.html'>
                     <img class="object-fill w-24 h-10 rounded-md hover:bg-indigo-800 items-center justify-center" src="../images/DNDampersand.jpeg" alt="Logo/Home"/>
                 </a>
