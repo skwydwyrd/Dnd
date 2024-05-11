@@ -435,5 +435,14 @@ document.addEventListener('DOMContentLoaded',()=>{
     // Sparkle icon: <span class="text-yellow-400">&#10024;</span>
     // Cross: <span class="text-gray-500">&#x2020;</span>
     // Vertical bar rounded: <span class="text-gray-500">&#x2758;</span>
+    function editStatblock(){
+        data = getEditorData()
+    }
+    function getEditorData(){
+        data={
+            'Name':'',
+            'Size':'',
+            // TODO: ...
+        }
 
- 
+    }

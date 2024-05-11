@@ -15,18 +15,18 @@
                 </h2>
                 <button class="text-2xl p-2 items-center justify-center bg-gray-800 border-2 border-gray-600 hover:border-indigo-800 rounded rounded-md" id="dark-mode"></button>
             </div>
-            <div class="sticky top-[70px] h-8 bg-opacity-80 z-10 bg-blue-700 rounded p-1 ml-2 m-4 hidden"
+            <div class="sticky top-[70px] h-8 bg-opacity-50 z-10 bg-blue-700 rounded p-1 ml-2 m-4 hidden"
                 id="roll-result-display">
             </div>
             <div id="notification" class="hidden p-2 text-white"></div>
             <div class="flex w-full items-start justify-between px-8 py-4">
                 <!-- Left Section: Inputs -->
-                <div class="sticky top-[20%] w-1/3 mr-6 space-y-6 bg-gray-800 bg-opacity-50 p-8 rounded-xl shadow-xl backdrop-blur-md">
+                <div class="sticky top-[20%] w-1/3 mr-6 space-y-6 bg-gray-700 bg-opacity-50 p-8 rounded-xl shadow-xl backdrop-blur-md">
                     <!-- w-2/3 mt-6 p-8 bg-gray-800 bg-opacity-50 rounded-xl shadow-xl text-white -->
                     <div class="flex justify-center items-center flex-row">
                         <h1 class="text-3xl font-bold text-center">Statblock Finder</h1>
                         <button 
-                            class="w-12 m-2 h-12 bg-gray-700 hover:bg-indigo-600 bg-opacity-50 rounded-lg transition duration-300" 
+                            class="w-12 m-2 h-12 bg-gray-600 border-2 border-gray-600 hover:border-indigo-500 bg-opacity-50 rounded-lg transition duration-300" 
                             id="info-toggler">
                             ?
                         </button>
@@ -38,7 +38,7 @@
                     
                     <div id="monster-preset-container"></div>
                     <button id="submit-button"
-                            class="w-full py-3 bg-gray-700 hover:bg-indigo-800 bg-opacity-50 font-semibold rounded-lg transition duration-300">
+                            class="w-full py-3 bg-gray-600 border-2 border-gray-600 hover:border-indigo-500 bg-opacity-50 font-semibold rounded-lg transition duration-300">
                         Submit
                     </button>
                     
@@ -46,13 +46,13 @@
                 <!-- TODO: add recent searches area with list of recent searches -->
                 <!-- w-2/3 -->
                 <!-- Right Section: Output -->
-                <div class='w-2/3 p-8 bg-gray-800 bg-opacity-50 rounded-xl shadow-xl' id="output">
+                <div class='w-2/3 p-8 bg-gray-700 bg-opacity-50 rounded-xl shadow-xl' id="output">
                     <!-- Output will be displayed here -->
                     <p class="text-center">Output will appear here...</p>
                 </div>
 
             </div>
-            <div class="sticky w-full max-w-4xl mx-auto p-6 bg-gray-800 bg-opacity-50 rounded-lg shadow-lg">
+            <div class="sticky w-full max-w-4xl mx-auto p-6 bg-gray-700 bg-opacity-50 rounded-lg shadow-lg">
                 <h2 class="text-xl text-center mb-6">Edit Statblock</h2>
                 <form class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border border-gray-600 hover:border-indigo-500 hover:ring-2 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
