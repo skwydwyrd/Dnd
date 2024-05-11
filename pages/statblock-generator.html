@@ -58,120 +58,219 @@
                     <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border border-gray-600 hover:border-indigo-500 hover:ring-2 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
                         type="text" 
                         placeholder="Name" 
-                        name="name"
+                        id="name"
                         >
+                    <select class="form-input mb-4 bg-gray-600 bg-opacity-50 border border-gray-600 hover:border-indigo-500 hover:ring-2 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
+                        id="size">
+                        <optgroup label="Size">
+                            <option>Tiny</option>
+                            <option>Small</option>
+                            <option>Medium</option>
+                            <option>Large</option>
+                            <option>Huge</option>
+                            <option>Gargantuan</option>
+                            <option>Other</option>
+                        </optgroup>
+                    </select>
+                    <select class="form-input mb-4 bg-gray-600 bg-opacity-50 border border-gray-600 hover:border-indigo-500 hover:ring-2 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
+                        id="type">
+                        <optgroup label="Type">
+                            <option>Abberation</option>
+                            <option>Beast</option>
+                            <option>Celestial</option>
+                            <option>Construct</option>
+                            <option>Dragon</option>
+                            <option>Elemental</option>
+                            <option>Fey</option>
+                            <option>Fiend</option>
+                            <option>Giant</option>
+                            <option>Humanoid</option>
+                            <option>Monstrosity</option>
+                            <option>Ooze</option>
+                            <option>Plant</option>
+                            <option>Undead</option>
+                            <option>Other</option>
+                        </optgroup>
+                    </select>
                     <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border border-gray-600 hover:border-indigo-500 hover:ring-2 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
                         type="text" 
-                        placeholder="Size" 
-                        name="size"
+                        placeholder="Subtype/Tag" 
+                        id="subtype"
                         >
+                    <select class="form-input mb-4 bg-gray-600 bg-opacity-50 border border-gray-600 hover:border-indigo-500 hover:ring-2 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
+                        id="alignment1">
+                        <optgroup label="Alignment (Lawful - Chaotic)">
+                            <option>Lawful</option>
+                            <option>Neutral</option>
+                            <option>Chaotic</option>
+                            <option>Other</option>
+                        </optgroup>
+                    </select>
+                    <select class="form-input mb-4 bg-gray-600 bg-opacity-50 border border-gray-600 hover:border-indigo-500 hover:ring-2 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
+                        id="alignment2">
+                        <optgroup label="Alignment (Evil - Good)">
+                            <option>Evil</option>
+                            <option>Neutral</option>
+                            <option>Good</option>
+                            <option>Other</option>
+                        </optgroup>
+                    </select>
                     <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border border-gray-600 hover:border-indigo-500 hover:ring-2 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
-                        type="text" 
-                        placeholder="Type" 
-                        name="type"
-                        >
-                    <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border border-gray-600 hover:border-indigo-500 hover:ring-2 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
-                        type="text" 
-                        placeholder="Alignment-Lawful->Chaotic" 
-                        name="alignment1"
-                        >
-                    <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border border-gray-600 hover:border-indigo-500 hover:ring-2 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
-                        type="text" 
-                        placeholder="Alignment-Evil->Good" 
-                        name="alignment2"
-                        >
-                    <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border border-gray-600 hover:border-indigo-500 hover:ring-2 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
-                        type="text" 
+                        type="number" 
                         placeholder="Armor Class" 
-                        name="armor_class"
+                        id="armor_class"
                         >
                     <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border border-gray-600 hover:border-indigo-500 hover:ring-2 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
                         type="text" 
                         placeholder="Armor Class Type" 
-                        name="armor_class_type"
+                        id="armor_class_type"
                         >
                     <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border border-gray-600 hover:border-indigo-500 hover:ring-2 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
-                        type="text" 
+                        type="number" 
                         placeholder="Hit Dice" 
-                        name="hit_dice"
+                        id="hit_dice"
                         >
                     <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border border-gray-600 hover:border-indigo-500 hover:ring-2 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
-                        type="text" 
+                        type="number" 
                         placeholder="Speed" 
-                        name="speed"
+                        id="speed"
                         >
                     <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border border-gray-600 hover:border-indigo-500 hover:ring-2 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
-                        type="text" 
+                        type="number" 
+                        min="1"
+                        max="30"
                         placeholder="Strength" 
-                        name="strength"
+                        id="strength"
                         >
                     <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border border-gray-600 hover:border-indigo-500 hover:ring-2 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
-                        type="text" 
+                        type="number"
+                        min="1"
+                        max="30" 
                         placeholder="Dexterity" 
-                        name="dexterity"
+                        id="dexterity"
                         >
                     <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border border-gray-600 hover:border-indigo-500 hover:ring-2 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
-                        type="text" 
+                        type="number" 
+                        min="1"
+                        max="30"
                         placeholder="Constitution" 
-                        name="constitution"
+                        id="constitution"
                         >
                     <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border border-gray-600 hover:border-indigo-500 hover:ring-2 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
-                        type="text" 
+                        type="number" 
+                        min="1"
+                        max="30"
                         placeholder="Intelligence" 
-                        name="intelligence"
+                        id="intelligence"
                         >
                     <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border border-gray-600 hover:border-indigo-500 hover:ring-2 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
-                        type="text" 
+                        type="number"
+                        min="1"
+                        max="30" 
                         placeholder="Wisdom" 
-                        name="wisdom"
+                        id="wisdom"
                         >
                     <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border border-gray-600 hover:border-indigo-500 hover:ring-2 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
-                        type="text" 
+                        type="number"
+                        min="1"
+                        max="30" 
                         placeholder="Charisma" 
-                        name="charisma"
+                        id="charisma"
                         >
+                    <select class="form-input mb-4 bg-gray-600 bg-opacity-50 border border-gray-600 hover:border-indigo-500 hover:ring-2 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
+                        id="saves">
+                        <optgroup label="Saving Throw Proficiencies">
+                            <option>Strength</option>
+                            <option>Dexterity</option>
+                            <option>Constitution</option>
+                            <option>Intelligence</option>
+                            <option>Wisdom</option>
+                            <option>Charisma</option>
+                            <option>Other</option>
+                        </optgroup>
+                    </select>
+                    <select class="form-input mb-4 bg-gray-600 bg-opacity-50 border border-gray-600 hover:border-indigo-500 hover:ring-2 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
+                        id="skills">
+                        <optgroup label="Skill Proficiencies">
+                            <option>Athletics</option>
+                            <option>Acrobatics</option>
+                            <option>Sleight of Hand</option>
+                            <option>Stealth</option>
+                            <option>Arcana</option>
+                            <option>History</option>
+                            <option>Investigation</option>
+                            <option>Nature</option>
+                            <option>Religion</option>
+                            <option>Animal Handling</option>
+                            <option>Insight</option>
+                            <option>Medicine</option>
+                            <option>Perception</option>
+                            <option>Survival</option>
+                            <option>Deception</option>
+                            <option>Intimidation</option>
+                            <option>Performance</option>
+                            <option>Persuasion</option>
+                            <option>Other</option>
+                        </optgroup>
+                    </select>
+                    <select class="form-input mb-4 bg-gray-600 bg-opacity-50 border border-gray-600 hover:border-indigo-500 hover:ring-2 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
+                        id="senses">
+                        <optgroup label="Senses">
+                            <option>Darkvision</option>
+                            <option>Blindsight</option>
+                            <option>Truesight</option>
+                            <option>Tremorsense</option>
+                            <option>Other</option>
+                        </optgroup>
+                    </select>
+                    <select class="form-input mb-4 bg-gray-600 bg-opacity-50 border border-gray-600 hover:border-indigo-500 hover:ring-2 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
+                        id="languages">
+                        <optgroup label="Common Languages">
+                            <option value="Common">Common</option>
+                            <option value="Dwarvish">Dwarvish</option>
+                            <option value="Elvish">Elvish</option>
+                            <option value="Giant">Giant</option>
+                            <option value="Gnomish">Gnomish</option>
+                            <option value="Goblin">Goblin</option>
+                            <option value="Halfling">Halfling</option>
+                            <option value="Orc">Orc</option>
+                        </optgroup>
+                        <optgroup label="Rare Languages">
+                            <option value="Abyssal">Abyssal</option>
+                            <option value="Celestial">Celestial</option>
+                            <option value="Deep Speech">Deep Speech</option>
+                            <option value="Draconic">Draconic</option>
+                            <option value="Infernal">Infernal</option>
+                            <option value="Primordial">Primordial</option>
+                            <option value="Sylvan">Sylvan</option>
+                            <option value="Undercommon">Undercommon</option>
+                        </optgroup>
+                    </select>
                     <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border border-gray-600 hover:border-indigo-500 hover:ring-2 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
-                        type="text" 
-                        placeholder="Saving Throws" 
-                        name="saving_throws"
-                        >
-                    <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border border-gray-600 hover:border-indigo-500 hover:ring-2 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
-                        type="text" 
-                        placeholder="Skills" 
-                        name="skills"
-                        >
-                    <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border border-gray-600 hover:border-indigo-500 hover:ring-2 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
-                        type="text" 
-                        placeholder="Senses" 
-                        name="senses"
-                        >
-                    <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border border-gray-600 hover:border-indigo-500 hover:ring-2 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
-                        type="text" 
-                        placeholder="Languages" 
-                        name="languages"
-                        >
-                    <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border border-gray-600 hover:border-indigo-500 hover:ring-2 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
-                        type="text" 
+                        type="number"
+                        min="0"
+                        max="30" 
                         placeholder="Challenge Rating" 
-                        name="challenge_rating"
+                        id="challenge_rating"
                         >
                     <textarea 
                         class="form-textarea col-span-1 md:col-span-2 lg:col-span-3" 
                         placeholder="Abilities" 
-                        name="abilities">
+                        id="abilities">
                     </textarea>
                     <textarea 
                         class="form-textarea col-span-1 md:col-span-2 lg:col-span-3" 
                         placeholder="Actions" 
-                        name="actions">
+                        id="actions">
                     </textarea>
                     <textarea 
                         class="form-textarea col-span-1 md:col-span-2 lg:col-span-3" 
                         placeholder="Legendary Actions" 
-                        name="legendary_actions">
+                        id="legendary_actions">
                 </textarea>
                     <button 
-                        class="col-span-1 md:col-span-2 lg:col-span-3 bg-gray-600 bg-opacity-50 hover:bg-indigo-800 font-bold py-2 px-4 rounded rounded-md transition duration-300">
+                        class="col-span-1 md:col-span-2 lg:col-span-3 bg-gray-600 bg-opacity-50 hover:bg-indigo-800 font-bold py-2 px-4 rounded rounded-md transition duration-300"
+                        id="submit_edit">
                         Submit
                     </button>
                 </form>

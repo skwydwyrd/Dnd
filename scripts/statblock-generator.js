@@ -4,7 +4,6 @@ const monster_names = {
 };
 let selectedMonster = ''
 
-
 document.addEventListener('DOMContentLoaded',()=>{
     const base_url = 'https://www.dnd5eapi.co/api/'
 
