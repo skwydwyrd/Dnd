@@ -15,6 +15,11 @@ document.addEventListener('DOMContentLoaded',()=>{
     const monsterContainer = document.getElementById('monster-preset-container');
     const darkModeButton = document.getElementById('dark-mode')
 
+    // edit monster form variables
+    const monster_form_inputs = document.getElementsById('form-input')
+    const monster_form_selects = document.getElementsById('form-select')
+    
+
     const select = document.createElement('select');
     select.className = 'mb-4 bg-gray-600 bg-opacity-50 border border-gray-600 hover:border-indigo-500 hover:ring-2 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300 ';
 

@@ -22,8 +22,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
     const navbarHTML = `
-        <div id="navbar" class="sticky top-0 z-50">
-            <nav class="space-x-2 flex p-2 h-full w-full text-sm bg-gray-700 bg-opacity-50 border-r-2 border-indigo-800 items-center justify-center text-center">
+        <div id="navbar" class="items-center justify-center flex sticky top-0 z-50 bg-gray-700 bg-opacity-50">
+            <nav class="space-x-2 flex p-2 h-full w-full text-sm items-center justify-center text-center">
                 <a href='../index.html'>
                     <img class="object-fill w-24 h-10 rounded-md hover:bg-indigo-800 items-center justify-center" src="../images/DNDampersand.jpeg" alt="Logo/Home"/>
                 </a>
@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 ).join('')}
                 
             </nav>
+            <button class="text-2xl p-2 mr-10 w-6 h-6 items-center justify-center bg-gray-600 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 rounded-md" id="dark-mode"></button>
         </div>`;
     document.body.insertAdjacentHTML('afterbegin', navbarHTML);
 });
