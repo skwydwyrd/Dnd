@@ -2,7 +2,8 @@
 
 <html>
     <head>
-        <link href="/src/input.css" rel="stylesheet" />
+     
+        
         <script src="https://cdn.tailwindcss.com"></script>
 
     </head>
@@ -53,158 +54,169 @@
             </div>
             <div class="sticky w-full max-w-4xl mx-auto p-6 bg-gray-700 bg-opacity-50 rounded-lg shadow-lg">
                 <h2 class="text-xl text-center mb-6">Edit Statblock</h2>
-                <form class="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
+                <form class="w-full grid grid-cols-4 gap-4" id="editor-form">
+                    <input class="form-input col-span-4  bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
                         type="text" 
                         placeholder="Name" 
                         id="name"
                         >
-                    <select class="form-select mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
-                        id="size">
-                        <optgroup label="Size">
-                            <option value="tiny">Tiny</option>
-                            <option value="small">Small</option>
-                            <option value="medium">Medium</option>
-                            <option value="large">Large</option>
-                            <option value="huge">Huge</option>
-                            <option value="gargantuan">Gargantuan</option>
-                            <option value="other">Other</option>
-                        </optgroup>
-                    </select>
-                    <select class="form-select mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
-                        id="type">
-                        <optgroup label="Type">
-                            <option value="abberation">Abberation</option>
-                            <option value="beast">Beast</option>
-                            <option value="celestial">Celestial</option>
-                            <option value="construct">Construct</option>
-                            <option value="dragon">Dragon</option>
-                            <option value="elemental">Elemental</option>
-                            <option value="fey">Fey</option>
-                            <option value="fiend">Fiend</option>
-                            <option value="giant">Giant</option>
-                            <option value="humanoid">Humanoid</option>
-                            <option value="monstrosity">Monstrosity</option>
-                            <option value="ooze">Ooze</option>
-                            <option value="plant">Plant</option>
-                            <option value="undead">Undead</option>
-                            <option value="other">Other</option>
-                        </optgroup>
-                    </select>
+                    <div class="col-span-4 flex space-x-3">
+                        <select class="form-select mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
+                            id="size">
+                            <optgroup label="Size">
+                                <option value="Tiny">Tiny</option>
+                                <option value="Small">Small</option>
+                                <option value="Medium">Medium</option>
+                                <option value="Large">Large</option>
+                                <option value="Huge">Huge</option>
+                                <option value="Gargantuan">Gargantuan</option>
+                                <option value="Other">Other</option>
+                            </optgroup>
+                        </select>
+                        <select class="form-select mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
+                            id="type">
+                            <optgroup label="Type">
+                                <option value="Aberration">Aberration</option>
+                                <option value="Beast">Beast</option>
+                                <option value="Celestial">Celestial</option>
+                                <option value="Construct">Construct</option>
+                                <option value="Dragon">Dragon</option>
+                                <option value="Elemental">Elemental</option>
+                                <option value="Fey">Fey</option>
+                                <option value="Fiend">Fiend</option>
+                                <option value="Giant">Giant</option>
+                                <option value="Humanoid">Humanoid</option>
+                                <option value="Monstrosity">Monstrosity</option>
+                                <option value="Ooze">Ooze</option>
+                                <option value="Plant">Plant</option>
+                                <option value="Undead">Undead</option>
+                                <option value="Other">Other</option>
+                            </optgroup>
+                        </select>
+                        <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
+                            type="text" 
+                            placeholder="Subtype/Tag" 
+                            id="subtype"
+                            >
+                        <select class="form-select mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
+                            id="alignment1">
+                            <optgroup label="Alignment (Lawful - Chaotic)">
+                                <option value="Lawful">Lawful</option>
+                                <option value="Neutral">Neutral</option>
+                                <option value="Chaotic">Chaotic</option>
+                                <option value="Other">Other</option>
+                            </optgroup>
+                        </select>
+                        <select class="form-select mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
+                            id="alignment2">
+                            <optgroup label="Alignment (Evil - Good)">
+                                <option value="Evil">Evil</option>
+                                <option value="Neutral">Neutral</option>
+                                <option value="Good">Good</option>
+                                <option value="Other">Other</option>
+                            </optgroup>
+                        </select>
+                    </div>
+                    <div class="col-span-4 flex space-x-3">
+                        <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
+                            type="number" 
+                            placeholder="Armor Class" 
+                            id="armor_class"
+                            >
+                        <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
+                            type="text" 
+                            placeholder="Armor Class Type" 
+                            id="armor_class_type"
+                            >
+                    </div>
                     <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
                         type="text" 
-                        placeholder="Subtype/Tag" 
-                        id="subtype"
-                        >
-                    <select class="form-select mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
-                        id="alignment1">
-                        <optgroup label="Alignment (Lawful - Chaotic)">
-                            <option value="lawful">Lawful</option>
-                            <option value="neutral">Neutral</option>
-                            <option value="chaotic">Chaotic</option>
-                            <option value="other">Other</option>
-                        </optgroup>
-                    </select>
-                    <select class="form-select mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
-                        id="alignment2">
-                        <optgroup label="Alignment (Evil - Good)">
-                            <option value="evil">Evil</option>
-                            <option value="neutral">Neutral</option>
-                            <option value="good">Good</option>
-                            <option value="other">Other</option>
-                        </optgroup>
-                    </select>
-                    <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
-                        type="number" 
-                        placeholder="Armor Class" 
-                        id="armor_class"
-                        >
-                    <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
-                        type="text" 
-                        placeholder="Armor Class Type" 
-                        id="armor_class_type"
-                        >
-                    <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
-                        type="number" 
                         placeholder="Hit Dice" 
                         id="hit_dice"
                         >
-                    <div class="flex">
+                    <div class="col-span-4 space-x-3">
+                        <div class="flex space-x-3">
                         <select 
-                            class="form-select mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300">
+                            class="form-select bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300">
                             <optgroup label="Speed Type">
-                                <option value="walking">Walking</option>
-                                <option value="swimming">Swimming</option>
-                                <option value="flying">Flying</option>
-                                <option value="climbing">Climbing</option>
-                                <option value="burrowing">Burrowing</option>
+                                <option value="Walking">Walking</option>
+                                <option value="Wwimming">Swimming</option>
+                                <option value="Flying">Flying</option>
+                                <option value="Climbing">Climbing</option>
+                                <option value="Burrowing">Burrowing</option>
                             </optgroup>
                         </select>
                         <input 
-                            class="form-input ml-2 mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
+                            class="form-input ml-2 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
                             type="number" 
                             placeholder="Speed" 
                             id="speed-number"
                             >
                         <button 
                             class="w-12 ml-2 p-2 h-12 bg-gray-600 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 bg-opacity-50 rounded-lg transition duration-300"
-                            id="add-speed">
+                            id="add-speed"
+                            onclick="addSpeed()"
+                            type="button">
                             +
                         </button>
+                        </div>
                     </div>
-                    <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
-                        type="number" 
-                        min="1"
-                        max="30"
-                        placeholder="Strength" 
-                        id="strength"
-                        >
-                    <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
-                        type="number"
-                        min="1"
-                        max="30" 
-                        placeholder="Dexterity" 
-                        id="dexterity"
-                        >
-                    <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
-                        type="number" 
-                        min="1"
-                        max="30"
-                        placeholder="Constitution" 
-                        id="constitution"
-                        >
-                    <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
-                        type="number" 
-                        min="1"
-                        max="30"
-                        placeholder="Intelligence" 
-                        id="intelligence"
-                        >
-                    <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
-                        type="number"
-                        min="1"
-                        max="30" 
-                        placeholder="Wisdom" 
-                        id="wisdom"
-                        >
-                    <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
-                        type="number"
-                        min="1"
-                        max="30" 
-                        placeholder="Charisma" 
-                        id="charisma"
-                        >
-                    <div class="flex">
+                    <div class="w-full col-span-4 mb-4" id="additional-speeds"></div>
+                    <div class="col-span-4 flex space-x-3">
+                        <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
+                            type="number" 
+                            min="1"
+                            max="30"
+                            placeholder="Strength" 
+                            id="strength"
+                            >
+                        <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
+                            type="number"
+                            min="1"
+                            max="30" 
+                            placeholder="Dexterity" 
+                            id="dexterity"
+                            >
+                        <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
+                            type="number" 
+                            min="1"
+                            max="30"
+                            placeholder="Constitution" 
+                            id="constitution"
+                            >
+                        <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
+                            type="number" 
+                            min="1"
+                            max="30"
+                            placeholder="Intelligence" 
+                            id="intelligence"
+                            >
+                        <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
+                            type="number"
+                            min="1"
+                            max="30" 
+                            placeholder="Wisdom" 
+                            id="wisdom"
+                            >
+                        <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
+                            type="number"
+                            min="1"
+                            max="30" 
+                            placeholder="Charisma" 
+                            id="charisma"
+                            >
+                    </div>
+                    <div class="flex col-span-4">
                         <select class="form-select mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
                             id="saves">
                             <optgroup label="Saving Throw Proficiencies">
-                                <option value="strength">Strength</option>
-                                <option value="dexterity">Dexterity</option>
-                                <option value="constitution">Constitution</option>
-                                <option value="intelligence">Intelligence</option>
-                                <option value="wisdom">Wisdom</option>
-                                <option value="charisma">Charisma</option>
-                                <option value="other">Other</option>
+                                <option value="Strength">Strength</option>
+                                <option value="Dexterity">Dexterity</option>
+                                <option value="Constitution">Constitution</option>
+                                <option value="Intelligence">Intelligence</option>
+                                <option value="Wisdom">Wisdom</option>
+                                <option value="Charisma">Charisma</option>
+                                <option value="Other">Other</option>
                             </optgroup>
                         </select>
                         <button 
@@ -213,29 +225,29 @@
                             +
                         </button>
                     </div>
-                    <div class="flex">
+                    <div class="flex col-span-4">
                         <select class="form-select mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
                             id="skills">
                             <optgroup label="Skill Proficiencies">
-                                <option value="athletics">Athletics</option>
-                                <option value="acrobatics">Acrobatics</option>
-                                <option value="sleight-of-hand">Sleight of Hand</option>
-                                <option value="stealth">Stealth</option>
-                                <option value="arcana">Arcana</option>
-                                <option value="history">History</option>
-                                <option value="investigation">Investigation</option>
-                                <option value="nature">Nature</option>
-                                <option value="religion">Religion</option>
-                                <option value="animal-handling">Animal Handling</option>
-                                <option value="insight">Insight</option>
-                                <option value="medicine">Medicine</option>
-                                <option value="perception">Perception</option>
-                                <option value="survival">Survival</option>
-                                <option value="deception">Deception</option>
-                                <option value="intimidation">Intimidation</option>
-                                <option value="performance">Performance</option>
-                                <option value="persuasion">Persuasion</option>
-                                <option value="other">Other</option>
+                                <option value="Athletics">Athletics</option>
+                                <option value="Acrobatics">Acrobatics</option>
+                                <option value="Sleight-of-hand">Sleight of Hand</option>
+                                <option value="Stealth">Stealth</option>
+                                <option value="Arcana">Arcana</option>
+                                <option value="History">History</option>
+                                <option value="Investigation">Investigation</option>
+                                <option value="Nature">Nature</option>
+                                <option value="Religion">Religion</option>
+                                <option value="Animal-handling">Animal Handling</option>
+                                <option value="Insight">Insight</option>
+                                <option value="Medicine">Medicine</option>
+                                <option value="Perception">Perception</option>
+                                <option value="Survival">Survival</option>
+                                <option value="Deception">Deception</option>
+                                <option value="Intimidation">Intimidation</option>
+                                <option value="Performance">Performance</option>
+                                <option value="Persuasion">Persuasion</option>
+                                <option value="Other">Other</option>
                             </optgroup>
                         </select>
                         <button 
@@ -244,15 +256,15 @@
                             +
                         </button>
                     </div>
-                    <div class="flex">
+                    <div class="flex col-span-4">
                         <select class="form-select mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
                             id="senses">
                             <optgroup label="Senses">
-                                <option value="darkvision">Darkvision</option>
-                                <option value="blindsight">Blindsight</option>
-                                <option value="truesight">Truesight</option>
-                                <option value="tremorsense">Tremorsense</option>
-                                <option value="other">Other</option>
+                                <option value="Darkvision">Darkvision</option>
+                                <option value="Blindsight">Blindsight</option>
+                                <option value="Truesight">Truesight</option>
+                                <option value="Tremorsense">Tremorsense</option>
+                                <option value="Other">Other</option>
                             </optgroup>
                         </select>
                         <button 
@@ -261,28 +273,28 @@
                             +
                         </button>
                     </div>
-                    <div class="flex">
+                    <div class="flex col-span-4">
                         <select class="form-select mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
                             id="languages">
                             <optgroup label="Common Languages">
-                                <option value="common">Common</option>
-                                <option value="dwarvish">Dwarvish</option>
-                                <option value="elvish">Elvish</option>
-                                <option value="giant">Giant</option>
-                                <option value="gnomish">Gnomish</option>
-                                <option value="goblin">Goblin</option>
-                                <option value="halfling">Halfling</option>
-                                <option value="orc">Orc</option>
+                                <option value="Common">Common</option>
+                                <option value="Dwarvish">Dwarvish</option>
+                                <option value="Elvish">Elvish</option>
+                                <option value="Giant">Giant</option>
+                                <option value="Gnomish">Gnomish</option>
+                                <option value="Goblin">Goblin</option>
+                                <option value="Halfling">Halfling</option>
+                                <option value="Orc">Orc</option>
                             </optgroup>
                             <optgroup label="Rare Languages">
-                                <option value="abyssal">Abyssal</option>
-                                <option value="celestial">Celestial</option>
-                                <option value="deep-speech">Deep Speech</option>
-                                <option value="draconic">Draconic</option>
-                                <option value="infernal">Infernal</option>
-                                <option value="primordial">Primordial</option>
-                                <option value="sylvan">Sylvan</option>
-                                <option value="undercommon">Undercommon</option>
+                                <option value="Abyssal">Abyssal</option>
+                                <option value="Celestial">Celestial</option>
+                                <option value="Deep-speech">Deep Speech</option>
+                                <option value="Draconic">Draconic</option>
+                                <option value="Infernal">Infernal</option>
+                                <option value="Primordial">Primordial</option>
+                                <option value="Sylvan">Sylvan</option>
+                                <option value="Undercommon">Undercommon</option>
                             </optgroup>
                         </select>
                         <button 
@@ -291,14 +303,14 @@
                             +
                         </button>
                     </div>
-                    <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
+                    <input class="col-span-4 mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
                         type="number"
                         min="0"
                         max="30" 
                         placeholder="Challenge Rating" 
                         id="challenge_rating"
                         >
-                    <div class="md:col-span-2 lg:col-span-3">
+                    <div class="col-span-2 md:col-span-3 lg:col-span-4">
                         <h2 class="text-center">
                             Abilities
                         </h2>
@@ -308,7 +320,7 @@
                             id="abilities">
                         </textarea>
                     </div>
-                    <div class="md:col-span-2 lg:col-span-3">
+                    <div class="col-span-2 md:col-span-3 lg:col-span-4">
                         <h2 class="text-center">
                             Actions
                         </h2>
@@ -318,7 +330,7 @@
                             id="actions">
                         </textarea>
                     </div>
-                    <div class="md:col-span-2 lg:col-span-3">
+                    <div class="col-span-2 md:col-span-3 lg:col-span-4">
                         <h2 class="text-center">
                             Legendary Actions
                         </h2>
@@ -329,11 +341,14 @@
                         </textarea>
                     </div>
                     <button 
-                        class="col-span-1 md:col-span-2 lg:col-span-3 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 font-bold py-2 px-4 rounded rounded-md transition duration-300"
+                        class="col-span-2 md:col-span-3 lg:col-span-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 font-bold py-2 px-4 rounded rounded-md transition duration-300"
                         id="submit_edit">
                         Submit
                     </button>
                 </form>
+
+
+                
             
             </div>
 

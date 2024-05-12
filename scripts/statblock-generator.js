@@ -3,7 +3,8 @@ const monster_names = {
     "--------------Tome of Beasts----------": ["Aboleth, Nihilith", "Nihilethic Zombie", "Abominable Beauty", "Accursed Defiler", "Ala", "Algorith", "Alseid", "Alseid Grovekeeper", "Amphiptere", "Andrenjinyi", "Angatra", "Angel, Chained", "Fidele Angel", "Angler Worm", "Giant Ant", "Giant Ant Queen", "Anubian", "Arboreal Grappler", "Aridni", "Asanbosam", "Azza Gremlin", "Baba Yaga's Horsemen, Black Night", "Baba Yaga's Horsemen, Bright Day", "Baba Yaga's Horsemen, Red Sun", "Bagiennik", "Bastet Temple Cat", "Bearfolk", "Behtu", "Beli", "Bereginyas", "Blemmyes", "Boloti", "Bone Collective", "Bone Crab", "Bone Swarm", "Bouda", "Broodiken", "Bucca", "Bukavac", "Buraq", "Burrowling", "Cactid", "Cambium", "Carrion Beetle", "Cavelight Moss", "Chelicerae", "Chernomoi", "Child Of The Briar", "Chronalmental", "Cikavak", "Clockwork Abomination", "Clockwork Beetle", "Clockwork Beetle Swarm", "Clockwork Hound", "Clockwork Huntsman", "Clockwork Myrmidon", "Clockwork Watchman", "Weaving Spider", "Clurichaun", "Cobbleswarm", "Corpse Mound", "Dau", "Death Butterfly Swarm", "Greater Death Butterfly Swarm", "Deathwisp", "Deep One", "Deep One Hybrid Priest", "Deep One Archimandrite", "Apau Perape", "Berstuc", "Kishi Demon", "Malakbel", "Psoglav Demon", "Rubezahl", "Skin Bat", "Derro Fetal Savant", "Derro Shadow Antipaladin", "Arbeyach", "Spawn Of Arbeyach", "Ia'affrat", "Automata Devil", "Chort Devil", "Crystalline Devil", "Gilded Devil", "Ink Devil", "Koralk (Harvester Devil)", "Lunar Devil", "Orobas Devil", "Salt Devil", "Mbielu", "Ngobou", "Spinosaurus", "Young Spinosaurus", "Dipsa", "Dissimortuum", "Dogmole", "Dogmole Juggernaut", "Domovoi", "Doppelrat", "Dorreq", "Adult Cave Dragon", "Young Cave Dragon", "Cave Dragon Wyrmling", "Ancient Flame Dragon", "Adult Flame Dragon", "Young Flame Dragon", "Flame Dragon Wyrmling", "Ancient Mithral Dragon", "Adult Mithral Dragon", "Young Mithral Dragon", "Ancient Sea Dragon", "Adult Sea Dragon", "Young Sea Dragon", "Sea Dragon Wyrmling", "Ancient Void Dragon", "Adult Void Dragon", "Young Void Dragon", "Void Dragon Wyrmling", "Ancient Wind Dragon", "Adult Wind Dragon", "Young Wind Dragon", "Wyrmling Wind Dragon", "Dragon Eel", "Dragonleaf Tree", "Alehouse Drake", "Ash Drake", "Coral Drake", "Crimson Drake", "Deep Drake", "Elder Shadow Drake", "Paper Drake", "Rust Drake", "Star Drake", "Drakon", "Dream Eater", "Drowned Maiden", "Duskthorn Dryad", "Dullahan", "Dune Mimic", "Eala", "Eater Of Dust (Yakat-Shi)", "Edimmu", "Eel Hound", "Einherjar", "Eleinomae", "Elemental Locus", "Shadow Fey", "Shadow Fey Duelist", "Shadow Fey Enchantress", "Shadow Fey Forest Hunter", "Shadow Fey Guardian", "Emerald Eye", "Empty Cloak", "Eonic Drifter", "Erina Scrounger", "Erina Defender", "Far Darrig", "Fate Eater", "Fear Smith", "Fellforged", "Fext", "Feyward Tree", "Firebird", "Firegeist", "Flutterflesh", "Folk Of Leng", "Forest Marauder", "Fraughashar", "Frostveil", "Garroter Crab", "Gbahali (Postosuchus)", "Gearforged Templar", "Al-Aeshma Genie", "Gerridae", "Beggar Ghoul", "Bonepowder Ghoul", "Ghoul, Darakhul", "Ghoul, Imperial", "Ghoul, Iron", "Desert Giant", "Flab Giant", "Hraesvelgr The Corpse Swallower", "Jotun Giant", "Thursir Giant", "Glass Gator", "Gnarljak", "Gnoll Havoc Runner", "Goat-Man", "Dust Goblin", "Eye Golem", "Hoard Golem", "Salt Golem", "Smaragdine Golem", "Steam Golem", "Gray Thirster", "Rum Gremlin", "Grim Jester", "Gug", "Blood Hag", "Mirror Hag", "Red Hag", "Sand Hag", "Owl Harpy", "Haugbui", "Herald Of Blood", "Herald Of Darkness", "Horakh", "Hound Of The Night", "Hulking Whelp", "Hundun", "Ice Maiden", "Idolic Deity", "Imy-Ut Ushabti", "Isonade", "Jaculus", "Kalke", "Kikimora", "Kobold Alchemist", "Kobold Chieftain", "Kobold Trapsmith", "Kongamato", "Koschei", "Kot Bayun", "Krake Spawn", "Lantern Dragonette", "Lemurfolk", "Lemurfolk Greyfur", "Leshy", "Library Automaton", "Lich Hound", "Likho", "Lindwurm", "Liosalfar", "Living Wick", "Lorelei", "Loxoda", "Mahoru", "Mallqui", "Malphas (Storm Crow)", "Mamura", "Mask Wight", "Mavka", "Mi-Go", "Millitaur", "Map Mimic", "Mindrot Thrall", "Mirager", "Miremal", "Mngwa", "Monolith Champion", "Monolith Footman", "Mordant Snare", "Morphoi", "Moss Lurker", "Venomous Mummy", "Deathcap Myconid", "Myling", "Naina", "Nichny", "Nightgarm", "Nkosi", "Nkosi Pridelord", "Nkosi War Ostrich", "Noctiny", "Oculo Swarm", "Oozasis", "Corrupting Ooze", "Ostinato", "Pombero", "Possessed Pillar", "Putrid Haunt", "Qwyllion", "Ramag", "Rat King", "Ratatosk", "Ratfolk", "Ratfolk Rogue", "Ravenala", "Ravenfolk Scout", "Ravenfolk Warrior", "Ravenfolk Doom Croaker", "Redcap", "Rift Swine", "Adult Rime Worm", "Rime Worm Grub", "Risen Reaver", "Roachling Skirmisher", "Roachling Lord", "Rotting Wind", "Rusalka", "Sand Silhouette", "Sandman", "Sandwyrm", "Sap Demon", "Sarcophagus Slime", "Sathaq Worm", "Savager", "Scheznyki", "Night Scorpion", "Stygian Fat-Tailed Scorpion", "Selang", "Serpopard", "Shabti", "Shadhavar", "Shadow Beast", "Shellycoat", "Shoggoth", "Shroud", "Skein Witch", "Sharkjaw Skeleton", "Vine Troll Skeleton", "Skitterhaunt", "Slow Storm", "Swamp Adder", "Zanskaran Viper", "Son Of Fenris", "Soul Eater", "Spark", "Spectral Guardian", "Gypsosphinx", "Ghostwalk Spider", "J'ba Fofi Spider", "Red-Banded Line Spider", "Sand Spider", "Spider Of Leng", "Spider Thief", "Spire Walker", "Star Spawn Of Cthulhu", "Stryx", "Stuhac", "Subek", "Suturefly", "Fire Dancer Swarm", "Manabane Scarab Swarm", "Prismatic Beetle Swarm", "Sluagh Swarm", "Wolf Spirit Swarm", "Temple Dog", "Thuellai", "Ancient Titan", "Degenerate Titan", "Titanoboa", "Tophet", "Tosculi Hive-Queen", "Tosculi Warrior", "Tosculi Drone", "Tosculi Elite Bow Raider", "Treacle", "Weeping Treant", "Lake Troll", "Trollkin Reaver", "Tusked Skyfish", "Uraeus", "Urochar (Strangling Watcher)", "Ushabti", "Vaettir", "Valkyrie", "Umbral Vampire", "Vapor Lynx", "Vesiculosa", "Vila", "Vile Barber", "Vine Lord", "Vine Lord's Tendril Puppet", "Voidling", "Wampus Cat", "Water Leaper", "Wharfling", "Wharfling Swarm", "White Ape", "Witchlight", "Wormhearted Suffragan", "Xanka", "Xhkarsh", "Ychen Bannog", "Zaratan", "Zimwi", "Zmey", "Zmey Headling", "Bandit Lord", "Black Knight Commander", "City Watch Captain", "Devilbound Gnomish Prince", "Dwarven Ringmage", "Elvish Veteran Archer", "Ghost Knight", "Ogre Chieftain, Corrupted", "Scorpion Cultist", "Wolf Reaver Dwarf", "Emerald Order Cult Leader", "Vampire Warlock - Variant"],
 };
 let selectedMonster = ''
-
+const statblock_data = {}
+const plusButtonSpeed = document.getElementById('add-speed')
 document.addEventListener('DOMContentLoaded',()=>{
     const base_url = 'https://www.dnd5eapi.co/api/'
 
@@ -13,12 +14,14 @@ document.addEventListener('DOMContentLoaded',()=>{
     const info_container = document.getElementById('output');
     const infoToggleButton = document.getElementById('info-toggler');
     const monsterContainer = document.getElementById('monster-preset-container');
-    const darkModeButton = document.getElementById('dark-mode')
+    
 
     // edit monster form variables
-    const monster_form_inputs = document.getElementsById('form-input')
-    const monster_form_selects = document.getElementsById('form-select')
-    
+    // const monster_form_inputs = document.getElementsById('form-input')
+    // const monster_form_selects = document.getElementsById('form-select')
+    // const monster_form_textareas = document.getElementsById('form-textarea')
+    const monster_form = document.getElementById('editor-form')
+    console.log(monster_form)
 
     const select = document.createElement('select');
     select.className = 'mb-4 bg-gray-600 bg-opacity-50 border border-gray-600 hover:border-indigo-500 hover:ring-2 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300 ';
@@ -63,6 +66,7 @@ document.addEventListener('DOMContentLoaded',()=>{
             const data = await getData();
             info_container.classList.remove('hidden')
             info_container.innerHTML = '';
+            setEditor(data, monster_form)
             const infoDiv = createInfoDiv(data);
             info_container.appendChild(infoDiv);
         } catch (error) {
@@ -86,12 +90,21 @@ document.addEventListener('DOMContentLoaded',()=>{
         `;
         return div;
     }
+    function setEditor(data, monster_form){
+        console.log(data['type'].charAt(0).toUpperCase() + data['type'].slice(1))
 
-    darkModeButton.addEventListener('click',()=>{
-        const darkLight = document.getElementById('dark/light')
-        darkLight.classList.toggle('bg-gray-950')
-        darkLight.classList.toggle('text-gray-200')
-    })
+        document.getElementById('name').value = data['name']
+        document.getElementById('size').value = data['size']
+        document.getElementById('type').value = data['type'].charAt(0).toUpperCase() + data['type'].slice(1)
+        document.getElementById('subtype').value = data['subtype'] || 'None'
+        // TODO: Add alignment
+        document.getElementById('armor_class').value = data['armor_class'][0]['value']
+        document.getElementById('armor_class_type').value = data['armor_class'][0]['type']
+        document.getElementById('hit_dice').value = data['hit_dice']
+        // TODO: Add speed
+
+    }
+
 
     infoToggleButton.addEventListener('click',()=>{
         const info = document.getElementById('info');
@@ -100,8 +113,6 @@ document.addEventListener('DOMContentLoaded',()=>{
     function formatBasicInfoMON(data) {
         //dnd info
         // hp format: (num of dice)d(die size) + (modifier)
-        
-        
         return `<div class="text-lg font-semibold text-white space-y-2">
                     <p class="font-bold">${data['name']}</p>
                     <p class="text-italic"> ${data['size']} ${data['type']}, ${data['alignment']}</p>
@@ -247,7 +258,30 @@ document.addEventListener('DOMContentLoaded',()=>{
 
     monsterContainer.appendChild(select);
 })
-    
+function addSpeed(){
+    const container = document.getElementById('additional-speeds')
+    const speed_group = document.createElement('div')
+    speed_group.classList.add('flex','space-x-3')
+    const speed_type = document.createElement('select')
+    speed_type.classList = "bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
+    speed_type.innerHTML = `<optgroup label="Speed Type">
+        <option value="Walking">Walking</option>
+        <option value="Wwimming">Swimming</option>
+        <option value="Flying">Flying</option>
+        <option value="Climbing">Climbing</option>
+        <option value="Burrowing">Burrowing</option>
+    </optgroup>`
+    const speed_number = document.createElement('input')
+    speed_number.type = 'number'
+    speed_number.placeholder = 'Speed'
+    speed_number.classList = "bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
+
+    speed_group.appendChild(speed_type)
+    speed_group.appendChild(speed_number)
+    container.appendChild(speed_group)
+
+       
+}
 
 
     function formatSpecialAbilities(data){

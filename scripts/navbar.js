@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
 // http://127.0.0.1:5501/Web%20Design/pages/statblock-generator.html
-
+    
     // get current pathname = window.location.pathname
     // split by / to get each path value 
     // slice this list so we don't include the last pathname (which represents the page we're currently on)
@@ -20,24 +20,40 @@ document.addEventListener('DOMContentLoaded', function() {
         { name: 'Books and Rules', href: 'books-rules.html' }
     ]
 
-
+    const navbarStyles = `items-center justify-center flex sticky top-0 z-50 bg-gray-700 bg-opacity-50 
+                        filter backdrop-blur-md border-b-2 border-indigo-700 
+                        shadow-md shadow-indigo-700`
     const navbarHTML = `
-        <div id="navbar" class="items-center justify-center flex sticky top-0 z-50 bg-gray-700 bg-opacity-50">
-            <nav class="space-x-2 flex p-2 h-full w-full text-sm items-center justify-center text-center">
-                <a href='../index.html'>
-                    <img class="object-fill w-24 h-10 rounded-md hover:bg-indigo-800 items-center justify-center" src="../images/DNDampersand.jpeg" alt="Logo/Home"/>
-                </a>
-                ${links.map(link => 
-                    `<a 
-                        class="items-center hover:bg-indigo-800 rounded-lg p-2"
-                        href=${basePath}${link.href}
-                    > 
-                        ${link.name}
-                    </a>`
-                ).join('')}
-                
-            </nav>
-            <button class="text-2xl p-2 mr-10 w-6 h-6 items-center justify-center bg-gray-600 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 rounded-md" id="dark-mode"></button>
-        </div>`;
+    <div id="navbar" class="${navbarStyles}">
+        <nav class="space-x-2 flex p-2 h-full w-full text-sm items-center justify-center text-center">
+            <a href='../index.html'>
+                <img class="object-fill w-24 h-10 rounded-md hover:bg-indigo-800 items-center justify-center" src="../images/DNDampersand.jpeg" alt="Logo/Home"/>
+            </a>
+            ${links.map(link => 
+                `<a 
+                    class="items-center hover:bg-indigo-800 rounded-lg p-2"
+                    href=${basePath}${link.href}
+                > 
+                    ${link.name}
+                </a>`
+            ).join('')}
+            
+        </nav>
+        <button class="text-2xl p-2 mr-10 w-6 h-6 items-center justify-center bg-gray-600 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 rounded-md" id="dark-mode"></button>
+    </div>`;
+
+
     document.body.insertAdjacentHTML('afterbegin', navbarHTML);
+
+    const darkModeButton = document.getElementById('dark-mode')
+    console.log(darkModeButton)
+    darkModeButton.addEventListener('click',()=>{
+        const darkLight = document.getElementById('dark/light')
+        darkLight.classList.toggle('bg-gray-950')
+        darkLight.classList.toggle('text-gray-200')
+    // darkLight.classList.toggle('placeholder-black')
+})
+
 });
+
+

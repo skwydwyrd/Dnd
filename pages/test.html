@@ -1,45 +1,49 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+
 <html>
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
-    <body>
-        <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        <select name="cars" id="cars">
-            <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
-            <option value="mercedes">Mercedes</option>
-            <option value="audi">Audi</option>
-        </select>
-        <div id="names-container" class="m-4">
+    <body class="bg-gray-500 items-center justify-center">
+        
+        <input class="mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
+            type = 'text'
+            placeholder="name"
+            id="name"
+            autocomplete="off" 
+        /> 
+        <div id="suggestions" class="bg-gray-700 text-white p-2 rounded hidden"></div>
+        <!--autocomplete = off = disable browser default autocomplete-->
+    
            
-        
-        </div>
+    
        <script>
-        
-        
-            document.addEventListener('DOMContentLoaded', () => {
-                const names = ['joe', "bob", "suzie"]
-                const container = document.getElementById('names-container')
-                names.forEach(name => {
-                    const p=document.createElement('p')
-                    p.textContent = name
-                    p.className = 'text-xl my-2 text-red-700'
-                    container.appendChild(p)
-                })
-            })
+            document.addEventListener('DOMContentLoaded', ()=>{
+                let name = document.getElementById('name')
+                const suggestions = document.getElementById('suggestions')
+                const list = ['aaaaaaaaaaaaahhhhhh!','actions','addition', 'bananas', 'daring']
+                name.addEventListener('input',()=>{
+                    suggestions.innerHTML = ''
+                    let input = name.value;
+                    if (input){
+                        const filtered_list = list.filter(name => name.includes(input))
+                        filtered_list.forEach(name2 => {
+                            const element = document.createElement('div')
+                            element.textContent = name2
+                            element.classList.add('p-2', 'bg-gray-700', 'bg-opacity-50', 'rounded-xl' ,'text-red-500', 'cursor-pointer')
+                            element.onclick = ()=>{
+                                name.value = name2 // when i click on a filtered name, update my input box to be that value
+                                suggestions.innerHTML = ''
+
+                            }
+                            suggestions.appendChild(element)
+                        })
+                        suggestions.classList.remove('hidden')
+                    } else {
+                        suggestions.classList.add('hidden')
+                    }
+                });
+            });
        </script>
     </body>
 </html>
