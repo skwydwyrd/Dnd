@@ -99,10 +99,20 @@ document.addEventListener('DOMContentLoaded',()=>{
         document.getElementById('subtype').value = data['subtype'] || 'None'
         // TODO: Add alignment
         document.getElementById('armor_class').value = data['armor_class'][0]['value']
-        document.getElementById('armor_class_type').value = data['armor_class'][0]['type']
+        document.getElementById('armor_class_type').value = data['armor_class'][0]['type'] !== 'dex' ? data['armor_class'][0]['type'] : ''
         document.getElementById('hit_dice').value = data['hit_dice']
         // TODO: Add speed
-
+        document.getElementById('strength').value = data['strength']
+        document.getElementById('dexterity').value = data['dexterity']
+        document.getElementById('constitution').value = data['constitution']
+        document.getElementById('intelligence').value = data['intelligence']
+        document.getElementById('wisdom').value = data['wisdom']
+        document.getElementById('charisma').value = data['charisma']
+        // TODO: add skills and saves
+        document.getElementById('challenge_rating').value = data['challenge_rating']
+        // data['special_abilities'].forEach( ability =>{
+        //     document.getElementById9('abilities').value += ability
+        // })
     }
 
 
