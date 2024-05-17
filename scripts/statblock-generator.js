@@ -110,9 +110,10 @@ document.addEventListener('DOMContentLoaded',()=>{
         document.getElementById('charisma').value = data['charisma']
         // TODO: add skills and saves
         document.getElementById('challenge_rating').value = data['challenge_rating']
-        // data['special_abilities'].forEach( ability =>{
-        //     document.getElementById9('abilities').value += ability
-        // })
+        data['special_abilities'].forEach( ability =>{
+            document.getElementById('abilities').value += ability['name'] + '\n'
+            document.getElementById('abilities').value += ability['desc']
+        })
     }
 
 
@@ -180,12 +181,12 @@ document.addEventListener('DOMContentLoaded',()=>{
             ;
             
         console.log(proficiencies)
-        let htmlContent = `<div class="flex items-center">${type}s:`
+        let htmlContent = `<div class="flex items-center">${type}s:` // TODO: change so that there is a space at the end of this line
         if (proficiencies.length > 0){
             proficiencies.forEach((proficiency)=>{
                 const mod = proficiency.split(' ')
-                htmlContent += `<p>${proficiency.split(' ')[0]}</p>
-                <button class="bg-blue-700 rounded p-1 m-2" onclick="roll('${type =='Skill' ? mod[0]+' '+'Check' : mod[0]+' '+type}', '1d20${mod[1]}')">
+                htmlContent += `<p>${mod[0]}  </p>
+                <button class="bg-blue-700 rounded p-1 m-2" onclick="roll('${type =='Skill' ? mod[0]+' '+'Check'+' ' : mod[0]+' '+type+' '}', '1d20${mod[1]}')">
                 ${mod[1]}
                 </button>`
             })
