@@ -16,13 +16,13 @@ document.addEventListener('DOMContentLoaded', function() {
         { name: 'Statblock Generator', href: 'statblock-generator.html'},
         { name: 'Encounter Generator', href: 'encounter-generator.html' },
         { name: 'Player Resources', href: 'player-resources.html' },
-        { name: 'Game Master Resources', href: 'dm-resources.html' },
+        // { name: 'Game Master Resources', href: 'dm-resources.html' },
         { name: 'Books and Rules', href: 'books-rules.html' }
     ]
 
-    const navbarStyles = `items-center justify-center flex sticky top-0 z-50 bg-gray-700 bg-opacity-50 
+    const navbarStyles = `items-center justify-around flex sticky top-0 z-50 bg-gray-700 bg-opacity-50 
                         filter backdrop-blur-md border-b-2 border-indigo-700 
-                        shadow-md shadow-indigo-700`
+                        shadow-md shadow-indigo-700 h-[10%]`
     const navbarHTML = `
     <div id="navbar" class="${navbarStyles}">
         <nav class="space-x-2 flex p-2 h-full w-full text-sm items-center justify-center text-center">

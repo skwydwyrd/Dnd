@@ -91,8 +91,15 @@ document.addEventListener('DOMContentLoaded',()=>{
         return div;
     }
     function setEditor(data, monster_form){
-        console.log(data['type'].charAt(0).toUpperCase() + data['type'].slice(1))
-
+        // console.log(data['type'].charAt(0).toUpperCase() + data['type'].slice(1))
+        
+        document.getElementById('ability-name').value = ''
+        document.getElementById('ability-desc').value = ''
+        document.getElementById('action-name').value = ''
+        document.getElementById('action-desc').value = ''
+        document.getElementById('legendary-action-name').value = ''
+        document.getElementById('legendary-action-desc').value = ''
+        
         document.getElementById('name').value = data['name']
         document.getElementById('size').value = data['size']
         document.getElementById('type').value = data['type'].charAt(0).toUpperCase() + data['type'].slice(1)
@@ -111,9 +118,10 @@ document.addEventListener('DOMContentLoaded',()=>{
         // TODO: add skills and saves
         document.getElementById('challenge_rating').value = data['challenge_rating']
         data['special_abilities'].forEach( ability =>{
-            document.getElementById('abilities').value += ability['name'] + '\n'
-            document.getElementById('abilities').value += ability['desc']
+            document.getElementById('ability-name').value += ability['name'] + '\n'
+            document.getElementById('ability-desc').value += ability['desc']
         })
+
     }
 
 
@@ -290,6 +298,51 @@ function addSpeed(){
     speed_group.appendChild(speed_type)
     speed_group.appendChild(speed_number)
     container.appendChild(speed_group)
+
+       
+}
+
+function addProf(type){
+    let container = document.getElementById('additional-saves')
+    container.classList.add('flex','space-x-3')
+    const prof_type = document.createElement('select')
+    prof_type.classList = "mt-2 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
+    if (type === 'skill'){
+        container = document.getElementById('additional-skills')
+        prof_type.innerHTML = `<optgroup label="Skill Proficiencies">
+                <option value="Athletics">Athletics</option>
+                <option value="Acrobatics">Acrobatics</option>
+                <option value="Sleight-of-hand">Sleight of Hand</option>
+                <option value="Stealth">Stealth</option>
+                <option value="Arcana">Arcana</option>
+                <option value="History">History</option>
+                <option value="Investigation">Investigation</option>
+                <option value="Nature">Nature</option>
+                <option value="Religion">Religion</option>
+                <option value="Animal-handling">Animal Handling</option>
+                <option value="Insight">Insight</option>
+                <option value="Medicine">Medicine</option>
+                <option value="Perception">Perception</option>
+                <option value="Survival">Survival</option>
+                <option value="Deception">Deception</option>
+                <option value="Intimidation">Intimidation</option>
+                <option value="Performance">Performance</option>
+                <option value="Persuasion">Persuasion</option>
+                <option value="Other">Other</option>
+            </optgroup>`
+    }
+    else {
+        prof_type.innerHTML = `<optgroup label="Skill Proficiencies">
+                <option value="Strength">Strength</option>
+                <option value="Dexterity">Dexterity</option>
+                <option value="Constitution">Constitution</option>
+                <option value="Intelligence">Intelligence</option>
+                <option value="Wisdom">Wisdom</option>
+                <option value="Charisma">Charisma</option>
+                <option value="Other">Other</option>
+            </optgroup>`
+    }
+    container.appendChild(prof_type)
 
        
 }

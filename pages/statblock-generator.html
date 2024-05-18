@@ -48,7 +48,7 @@
                 <!-- Right Section: Output -->
                 <div class='w-2/3 p-8 bg-gray-700 bg-opacity-50 rounded-xl shadow-xl' id="output">
                     <!-- Output will be displayed here -->
-                    <p class="text-center">Output will appear here...</p>
+                    <p class="text-center">Statblock will appear here...</p>
                 </div>
 
             </div>
@@ -221,12 +221,15 @@
                         </select>
                         <button 
                             class="w-12 ml-2 p-2 h-12 bg-gray-600 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 bg-opacity-50 rounded-lg transition duration-300"
-                            id="add-save">
+                            id="add-save"
+                            onclick="addProf('saving throw')"
+                            type="button">
                             +
                         </button>
                     </div>
+                    <div class="w-full col-span-4 mb-4" id="additional-saves"></div>
                     <div class="flex col-span-4">
-                        <select class="form-select mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
+                        <select class="form-select bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
                             id="skills">
                             <optgroup label="Skill Proficiencies">
                                 <option value="Athletics">Athletics</option>
@@ -252,10 +255,13 @@
                         </select>
                         <button 
                             class="w-12 ml-2 p-2 h-12 bg-gray-600 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 bg-opacity-50 rounded-lg transition duration-300"
-                            id="add-save">
+                            id="add-skill"
+                            onclick="addProf('skill')"
+                            type="button">
                             +
                         </button>
                     </div>
+                    <div class="w-full col-span-4 mb-4" id="additional-skills"></div>
                     <div class="flex col-span-4">
                         <select class="form-select mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
                             id="senses">
