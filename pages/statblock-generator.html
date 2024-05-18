@@ -101,19 +101,19 @@
                         <select class="form-select mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
                             id="alignment1">
                             <optgroup label="Alignment (Lawful - Chaotic)">
-                                <option value="Lawful">Lawful</option>
-                                <option value="Neutral">Neutral</option>
-                                <option value="Chaotic">Chaotic</option>
-                                <option value="Other">Other</option>
+                                <option value="lawful">Lawful</option>
+                                <option value="neutral">Neutral</option>
+                                <option value="chaotic">Chaotic</option>
+                                <option value="other">Other</option>
                             </optgroup>
                         </select>
                         <select class="form-select mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
                             id="alignment2">
                             <optgroup label="Alignment (Evil - Good)">
-                                <option value="Evil">Evil</option>
-                                <option value="Neutral">Neutral</option>
-                                <option value="Good">Good</option>
-                                <option value="Other">Other</option>
+                                <option value="evil">Evil</option>
+                                <option value="neutral">Neutral</option>
+                                <option value="good">Good</option>
+                                <option value="other">Other</option>
                             </optgroup>
                         </select>
                     </div>
@@ -207,7 +207,7 @@
                             >
                     </div>
                     <div class="flex col-span-4">
-                        <select class="form-select mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
+                        <select class="form-select bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-hand transition duration-300"
                             id="saves">
                             <optgroup label="Saving Throw Proficiencies">
                                 <option value="Strength">Strength</option>
@@ -222,14 +222,14 @@
                         <button 
                             class="w-12 ml-2 p-2 h-12 bg-gray-600 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 bg-opacity-50 rounded-lg transition duration-300"
                             id="add-save"
-                            onclick="addProf('saving throw')"
+                            onclick="addProf('save')"
                             type="button">
                             +
                         </button>
                     </div>
                     <div class="w-full col-span-4 mb-4" id="additional-saves"></div>
                     <div class="flex col-span-4">
-                        <select class="form-select bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
+                        <select class="form-select bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-hand transition duration-300"
                             id="skills">
                             <optgroup label="Skill Proficiencies">
                                 <option value="Athletics">Athletics</option>
@@ -261,7 +261,7 @@
                             +
                         </button>
                     </div>
-                    <div class="w-full col-span-4 mb-4" id="additional-skills"></div>
+                    <div class="w-full col-span-4" id="additional-skills"></div>
                     <div class="flex col-span-4">
                         <select class="form-select mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
                             id="senses">
@@ -333,11 +333,13 @@
                             </textarea>
                             <button 
                                 class="w-12 ml-2 p-2 h-12 bg-gray-600 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 bg-opacity-50 rounded-lg transition duration-300"
-                                id="add-ability">
+                                id="add-ability"
+                                onclick = "addTextAbility('ability')"
+                                type = "button">
                                 +
                             </button>
                         </div>
-                        <div class="p-8 mt-4 bg-gray-600 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 bg-opacity-50 rounded-lg transition duration-300" id="abilities-output">Abilities will apear here...</div>
+                        <div class="text-center" id="additional-ability"></div>
                     </div>
                     <div class="col-span-2 md:col-span-3 lg:col-span-4 mb-10">
                         <h2 class="text-center">
@@ -356,11 +358,13 @@
                             </textarea>
                             <button 
                                 class="w-12 ml-2 p-2 h-12 bg-gray-600 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 bg-opacity-50 rounded-lg transition duration-300"
-                                id="add-action">
+                                id="add-action"
+                                type="button"
+                                onclick="addTextAbility('action')">
                                 +
                             </button>
                         </div>
-                        <div class="p-8 mt-4 bg-gray-600 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 bg-opacity-50 rounded-lg transition duration-300" id="actions-output">Actions will apear here...</div>
+                        <div class="text-center" id="additional-action"></div>
                     </div>
                     <div class="col-span-2 md:col-span-3 lg:col-span-4 mb-10">
                         <h2 class="text-center">
@@ -379,11 +383,13 @@
                             </textarea>
                             <button 
                                 class="w-12 ml-2 p-2 h-12 bg-gray-600 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 bg-opacity-50 rounded-lg transition duration-300"
-                                id="add-legendary-action">
+                                id="add-legendary-action"
+                                onclick="addTextAbility('legendary')"
+                                type="button">
                                 +
                             </button>
                         </div>
-                        <div class="p-8 mt-4 bg-gray-600 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 bg-opacity-50 rounded-lg transition duration-300" id="legendary-actions-output">Legendary Actions will apear here...</div>
+                        <div class="text-center" id="additional-legendary"></div>
                     </div>
                     <button 
                         class="col-span-2 md:col-span-3 lg:col-span-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 font-bold py-2 px-4 mt-6 rounded rounded-md transition duration-300"

@@ -92,19 +92,21 @@ document.addEventListener('DOMContentLoaded',()=>{
     }
     function setEditor(data, monster_form){
         // console.log(data['type'].charAt(0).toUpperCase() + data['type'].slice(1))
-        
         document.getElementById('ability-name').value = ''
         document.getElementById('ability-desc').value = ''
         document.getElementById('action-name').value = ''
         document.getElementById('action-desc').value = ''
         document.getElementById('legendary-action-name').value = ''
         document.getElementById('legendary-action-desc').value = ''
-        
+
         document.getElementById('name').value = data['name']
         document.getElementById('size').value = data['size']
         document.getElementById('type').value = data['type'].charAt(0).toUpperCase() + data['type'].slice(1)
         document.getElementById('subtype').value = data['subtype'] || 'None'
-        // TODO: Add alignment
+        if (data['alignment'] !== 'any alignment' && data['alignment'] !== 'unaligned'){
+            document.getElementById('alignment1').value = data['alignment'].split(' ')[0]
+            document.getElementById('alignment2').value = data['alignment'].split(' ')[1]
+        }
         document.getElementById('armor_class').value = data['armor_class'][0]['value']
         document.getElementById('armor_class_type').value = data['armor_class'][0]['type'] !== 'dex' ? data['armor_class'][0]['type'] : ''
         document.getElementById('hit_dice').value = data['hit_dice']
@@ -188,7 +190,7 @@ document.addEventListener('DOMContentLoaded',()=>{
             .map(prof => `${prof['proficiency']['name'].split(': ')[1]} +${prof['value']}`)
             ;
             
-        console.log(proficiencies)
+        // console.log(proficiencies)
         let htmlContent = `<div class="flex items-center">${type}s:` // TODO: change so that there is a space at the end of this line
         if (proficiencies.length > 0){
             proficiencies.forEach((proficiency)=>{
@@ -303,13 +305,12 @@ function addSpeed(){
 }
 
 function addProf(type){
-    let container = document.getElementById('additional-saves')
-    container.classList.add('flex','space-x-3')
-    const prof_type = document.createElement('select')
-    prof_type.classList = "mt-2 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
+    const container = document.getElementById(`additional-${type}s`)
+    // container.classList.add('flex','space-x-3')
+    const prof_select = document.createElement('select')
+    prof_select.classList = "my-2 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
     if (type === 'skill'){
-        container = document.getElementById('additional-skills')
-        prof_type.innerHTML = `<optgroup label="Skill Proficiencies">
+        prof_select.innerHTML = `<optgroup label="Skill Proficiencies">
                 <option value="Athletics">Athletics</option>
                 <option value="Acrobatics">Acrobatics</option>
                 <option value="Sleight-of-hand">Sleight of Hand</option>
@@ -332,7 +333,7 @@ function addProf(type){
             </optgroup>`
     }
     else {
-        prof_type.innerHTML = `<optgroup label="Skill Proficiencies">
+        prof_select.innerHTML = `<optgroup label="Saving Throw Proficiencies">
                 <option value="Strength">Strength</option>
                 <option value="Dexterity">Dexterity</option>
                 <option value="Constitution">Constitution</option>
@@ -342,11 +343,30 @@ function addProf(type){
                 <option value="Other">Other</option>
             </optgroup>`
     }
-    container.appendChild(prof_type)
-
-       
+    container.appendChild(prof_select) 
 }
+    function addTextAbility(type){
+        const container = document.getElementById(`additional-${type}`)
+        const ability = document.createElement('div')
+        ability.classList.add('flex','my-4','p-4','bg-gray-600','bg-opacity-10','border-2','border-gray-600','hover:border-indigo-500','rounded-lg','transition','duration-300') // TODO: draggable
+        const name = document.createElement('input')
+        name.type = 'text'
+        name.id = `${type}-name`
+        name.classList = "form-input mb-4 w-1/3 bg-gray-600 bg-opacity-30 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
+        name.placeholder = `${type.charAt(0).toUpperCase() + type.slice(1)} name`
+        const desc = document.createElement('textarea')
+        desc.classList = "form-textarea ml-2 w-2/3 bg-gray-600 bg-opacity-30 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 rounded-md transition duration-300" 
+        desc.placeholder = `${type.charAt(0).toUpperCase() + type.slice(1)} description`
+        if (type==='legendary'){
+            name.placeholder = 'Legendary Action name'
+            desc.placeholder = 'Legendary Action description'
+        }
+        desc.id = `${type}-desc`
+        ability.appendChild(name)
+        ability.appendChild(desc)
+        container.appendChild(ability)
 
+    }
 
     function formatSpecialAbilities(data){
         let htmlContent = '<hr><br><div>'
