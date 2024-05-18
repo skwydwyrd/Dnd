@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         document.getElementById('name').value = data['name']
         document.getElementById('size').value = data['size']
         document.getElementById('type').value = data['type'].charAt(0).toUpperCase() + data['type'].slice(1)
-        document.getElementById('subtype').value = data['subtype'] || 'None'
+        document.getElementById('subtype').value = data['subtype'] || ''
         if (data['alignment'] !== 'any alignment' && data['alignment'] !== 'unaligned'){
             document.getElementById('alignment1').value = data['alignment'].split(' ')[0]
             document.getElementById('alignment2').value = data['alignment'].split(' ')[1]
@@ -110,16 +110,60 @@ document.addEventListener('DOMContentLoaded',()=>{
         document.getElementById('armor_class').value = data['armor_class'][0]['value']
         document.getElementById('armor_class_type').value = data['armor_class'][0]['type'] !== 'dex' ? data['armor_class'][0]['type'] : ''
         document.getElementById('hit_dice').value = data['hit_dice']
-        // TODO: Add speed
+        document.getElementById('speed-type').value = 'walk'
+        document.getElementById('speed-number').value = data['speed']['walk'].split(' ft')[0]
+        Object.entries(data['speed']).slice(1).forEach(([type, speed]) => {
+            addSpeed(type, speed.split(' ft.')[0])
+        })
         document.getElementById('strength').value = data['strength']
         document.getElementById('dexterity').value = data['dexterity']
         document.getElementById('constitution').value = data['constitution']
         document.getElementById('intelligence').value = data['intelligence']
         document.getElementById('wisdom').value = data['wisdom']
         document.getElementById('charisma').value = data['charisma']
-        // TODO: add skills and saves
+
+        const saveProficiencies = data['proficiencies']
+            .filter(prof => prof['proficiency']['name'].startsWith('Saving Throw: '))
+            .map(prof => `${prof['proficiency']['name'].split(': ')[1]} +${prof['value']}`)
+            ;
+        
+        if (saveProficiencies.length > 0){
+            document.getElementById('saves').value = saveProficiencies[0].split(' +')[0]
+        }
+        
+        if (saveProficiencies.length > 1){
+            saveProficiencies.slice(1).forEach((proficiency) => {
+                addProf('save', proficiency.split(' +')[0])
+            })
+        }
+
+        const skillProficiencies = data['proficiencies']
+            .filter(prof => prof['proficiency']['name'].startsWith('Skill: '))
+            .map(prof => `${prof['proficiency']['name'].split(': ')[1]} +${prof['value']}`)
+            ;
+        
+        if (skillProficiencies.length > 0){
+            console.log(skillProficiencies)
+            document.getElementById('skills').value = skillProficiencies[0].split(' +')[0]
+        }
+        
+        if (skillProficiencies.length > 1){
+            console.log(skillProficiencies)
+            skillProficiencies.slice(1).forEach((proficiency) => {
+                addProf('skill', proficiency.split(' +')[0])
+            })
+        }
+        document.getElementById('sense-number').value = data['senses']['passive_perception']
+        // if (data['senses'].length > 1){
+
+            Object.entries(data['senses']).slice(0,-1).forEach(sense => {
+                console.log(sense)
+                console.log(sense[1].split(' ft.')[0])
+                addSense(sense[0], sense[1].split(' ft.')[0])
+            })
+        // }
         document.getElementById('challenge_rating').value = data['challenge_rating']
-        data['special_abilities'].forEach( ability =>{
+        data['special_abilities'].forEach(ability =>{
             document.getElementById('ability-name').value += ability['name'] + '\n'
             document.getElementById('ability-desc').value += ability['desc']
         })
@@ -190,7 +234,7 @@ document.addEventListener('DOMContentLoaded',()=>{
             .map(prof => `${prof['proficiency']['name'].split(': ')[1]} +${prof['value']}`)
             ;
             
-        // console.log(proficiencies)
+        console.log(proficiencies)
         let htmlContent = `<div class="flex items-center">${type}s:` // TODO: change so that there is a space at the end of this line
         if (proficiencies.length > 0){
             proficiencies.forEach((proficiency)=>{
@@ -279,23 +323,26 @@ document.addEventListener('DOMContentLoaded',()=>{
 
     monsterContainer.appendChild(select);
 })
-function addSpeed(){
+function addSpeed(type='walk', speed=30){
     const container = document.getElementById('additional-speeds')
     const speed_group = document.createElement('div')
+    speed_group.classList.add('mb-4')
     speed_group.classList.add('flex','space-x-3')
     const speed_type = document.createElement('select')
     speed_type.classList = "bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
     speed_type.innerHTML = `<optgroup label="Speed Type">
-        <option value="Walking">Walking</option>
-        <option value="Wwimming">Swimming</option>
-        <option value="Flying">Flying</option>
-        <option value="Climbing">Climbing</option>
-        <option value="Burrowing">Burrowing</option>
+        <option value="walk">Walking</option>
+        <option value="swim">Swimming</option>
+        <option value="fly">Flying</option>
+        <option value="climb">Climbing</option>
+        <option value="burrow">Burrowing</option>
     </optgroup>`
+    speed_type.value = type
     const speed_number = document.createElement('input')
     speed_number.type = 'number'
     speed_number.placeholder = 'Speed'
     speed_number.classList = "bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
+    speed_number.value = speed
 
     speed_group.appendChild(speed_type)
     speed_group.appendChild(speed_number)
@@ -304,11 +351,12 @@ function addSpeed(){
        
 }
 
-function addProf(type){
+function addProf(type, profParameter = null){
+    const prof = profParameter ? profParameter : 'false'
     const container = document.getElementById(`additional-${type}s`)
     // container.classList.add('flex','space-x-3')
     const prof_select = document.createElement('select')
-    prof_select.classList = "my-2 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
+    prof_select.classList = "mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
     if (type === 'skill'){
         prof_select.innerHTML = `<optgroup label="Skill Proficiencies">
                 <option value="Athletics">Athletics</option>
@@ -334,17 +382,46 @@ function addProf(type){
     }
     else {
         prof_select.innerHTML = `<optgroup label="Saving Throw Proficiencies">
-                <option value="Strength">Strength</option>
-                <option value="Dexterity">Dexterity</option>
-                <option value="Constitution">Constitution</option>
-                <option value="Intelligence">Intelligence</option>
-                <option value="Wisdom">Wisdom</option>
-                <option value="Charisma">Charisma</option>
+                <option value="STR">Strength</option>
+                <option value="DEX">Dexterity</option>
+                <option value="CON">Constitution</option>
+                <option value="INT">Intelligence</option>
+                <option value="WIS">Wisdom</option>
+                <option value="CHA">Charisma</option>
                 <option value="Other">Other</option>
             </optgroup>`
     }
+    if (prof !== 'false'){
+        prof_select.value = prof
+    }
     container.appendChild(prof_select) 
 }
+    function addSense(valueSet = null, numValue = null){
+        const container = document.getElementById('additional-senses')
+        const senseSelect = document.createElement('select')
+        senseSelect.innerHTML = `<optgroup label="Senses">
+                <option value="darkvision">Darkvision</option>
+                <option value="Blindsight">Blindsight</option>
+                <option value="Truesight">Truesight</option>
+                <option value="Tremorsense">Tremorsense</option>
+                <option value="Other">Other</option>
+            </optgroup>`
+        senseSelect.classList = "mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
+        if (valueSet !== null){
+            senseSelect.value = valueSet
+        }
+
+        const senseNumber = document.createElement('input')
+        senseNumber.classList = "form-input mb-4 ml-2 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
+        senseNumber.type = "number"
+        senseNumber.placeholder = "ft."
+        if (numValue !== null){
+            senseNumber.value = numValue
+        }
+        container.classList = "flex col-span-4"
+        container.appendChild(senseSelect)
+        container.appendChild(senseNumber)
+    }
     function addTextAbility(type){
         const container = document.getElementById(`additional-${type}`)
         const ability = document.createElement('div')

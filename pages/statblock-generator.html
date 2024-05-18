@@ -137,13 +137,14 @@
                     <div class="col-span-4 space-x-3">
                         <div class="flex space-x-3">
                         <select 
-                            class="form-select bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300">
+                            class="form-select bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
+                            id="speed-type">
                             <optgroup label="Speed Type">
-                                <option value="Walking">Walking</option>
-                                <option value="Wwimming">Swimming</option>
-                                <option value="Flying">Flying</option>
-                                <option value="Climbing">Climbing</option>
-                                <option value="Burrowing">Burrowing</option>
+                                <option value="walk">Walking</option>
+                                <option value="swim">Swimming</option>
+                                <option value="fly">Flying</option>
+                                <option value="climb">Climbing</option>
+                                <option value="burrow">Burrowing</option>
                             </optgroup>
                         </select>
                         <input 
@@ -210,12 +211,12 @@
                         <select class="form-select bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-hand transition duration-300"
                             id="saves">
                             <optgroup label="Saving Throw Proficiencies">
-                                <option value="Strength">Strength</option>
-                                <option value="Dexterity">Dexterity</option>
-                                <option value="Constitution">Constitution</option>
-                                <option value="Intelligence">Intelligence</option>
-                                <option value="Wisdom">Wisdom</option>
-                                <option value="Charisma">Charisma</option>
+                                <option value="STR">Strength</option>
+                                <option value="DEX">Dexterity</option>
+                                <option value="CON">Constitution</option>
+                                <option value="INT">Intelligence</option>
+                                <option value="WIS">Wisdom</option>
+                                <option value="CHA">Charisma</option>
                                 <option value="Other">Other</option>
                             </optgroup>
                         </select>
@@ -266,6 +267,7 @@
                         <select class="form-select mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
                             id="senses">
                             <optgroup label="Senses">
+                                <option vale="passive_perception">Passive Perception</option>
                                 <option value="Darkvision">Darkvision</option>
                                 <option value="Blindsight">Blindsight</option>
                                 <option value="Truesight">Truesight</option>
@@ -273,12 +275,21 @@
                                 <option value="Other">Other</option>
                             </optgroup>
                         </select>
+                        <input class="form-input ml-2 mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
+                            id="sense-number"
+                            type="number"
+                            placeholder = "Score"
+                            >
+                        
                         <button 
                             class="w-12 ml-2 p-2 h-12 bg-gray-600 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 bg-opacity-50 rounded-lg transition duration-300"
-                            id="add-sense">
+                            id="add-sense"
+                            onclick="addSense()"
+                            type="button">
                             +
                         </button>
                     </div>
+                    <div class="w-full col-span-4" id="additional-senses"></div>
                     <div class="flex col-span-4">
                         <select class="form-select mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
                             id="languages">
