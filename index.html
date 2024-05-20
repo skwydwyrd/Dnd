@@ -127,9 +127,9 @@
 
 		<!-- Notes and complaints -->
 
-		<div id="notes-previous" class="m-2 p-2 bg-gray-600 rounded-md"></div>
+		<div id="notes-previous" class="m-2 p-2 bg-gray-600 text-indigo-400 rounded-md"></div>
 		<input id="notes-current" class="m-2 p-2 bg-gray-600 rounded-md" type="text" placeholder="Something"/>
-		<button onclick='SubmitNotes()' class="m-2 p-2 bg-indigo-800 rounded-md text-white hover:border-2">Submit</button>
+		<button onclick='submitNotes()' class="m-2 p-2 bg-indigo-800 rounded-md text-white hover:border-2">Submit</button>
 
 		<!-- Dice Roller -->
 		<section id="dice-roller"
@@ -246,6 +246,7 @@
 
 	<!-- scripts -->
 	<script>
+		document.addEventListener('DOMContentLoaded', submitNotes())
 		document.querySelectorAll('.dice-btn').forEach(btn => {
 			btn.addEventListener('click', function() {
 				const dice_type = this.getAttribute('data-dice');
@@ -258,14 +259,15 @@
 			return Math.floor(Math.random() * dice_type) + 1;
 		}
 		
-		function SubmitNotes() {
-			let note = document.getElementById('notes-current')
+		function submitNotes() {
+			let note = document.getElementById('notes-current').value
 			let notes = JSON.parse(localStorage.getItem('notes')) || [];
 			notes.push(note);
 			localStorage.setItem('notes', JSON.stringify(notes));
 			const outputElement = document.getElementById('notes-previous');
 			outputElement.innerHTML = '';
 			outputElement.innerHTML += notes
+			document.getElementById('notes-current').value = ''
 		}
 
 

@@ -1,9 +1,12 @@
+import { myFormHTML } from './formHtml.js'; 
+
 const monster_names = {
     "5e SRD-------------": ["Aboleth", "Acolyte", "Adult Black Dragon", "Adult Blue Dragon", "Adult Brass Dragon", "Adult Bronze Dragon", "Adult Copper Dragon", "Adult Gold Dragon", "Adult Green Dragon", "Adult Red Dragon", "Adult Silver Dragon", "Adult White Dragon", "Air Elemental", "Ancient Black Dragon", "Ancient Blue Dragon", "Ancient Brass Dragon", "Ancient Bronze Dragon", "Ancient Copper Dragon", "Ancient Gold Dragon", "Ancient Green Dragon", "Ancient Red Dragon", "Ancient Silver Dragon", "Ancient White Dragon", "Androsphinx", "Animated Armor", "Ankheg", "Ape", "Archmage", "Assassin", "Awakened Shrub", "Awakened Tree", "Axe Beak", "Azer", "Baboon", "Badger", "Balor", "Bandit", "Bandit Captain", "Barbed Devil", "Basilisk", "Bat", "Bearded Devil", "Behir", "Berserker", "Black Bear", "Black Dragon Wyrmling", "Black Pudding", "Blink Dog", "Blood Hawk", "Blue Dragon Wyrmling", "Boar", "Bone Devil", "Brass Dragon Wyrmling", "Bronze Dragon Wyrmling", "Brown Bear", "Bugbear", "Bulette", "Camel", "Cat", "Centaur", "Chain Devil", "Chimera", "Chuul", "Clay Golem", "Cloaker", "Cloud Giant", "Cockatrice", "Commoner", "Constrictor Snake", "Copper Dragon Wyrmling", "Couatl", "Crab", "Crocodile", "Cult Fanatic", "Cultist", "Darkmantle", "Death Dog", "Deep Gnome (Svirfneblin)", "Deer", "Deva", "Dire Wolf", "Djinni", "Doppelganger", "Draft Horse", "Dragon Turtle", "Dretch", "Drider", "Drow", "Druid", "Dryad", "Duergar", "Dust Mephit", "Eagle", "Earth Elemental", "Efreeti", "Elephant", "Elk", "Erinyes", "Ettercap", "Ettin", "Fire Elemental", "Fire Giant", "Flesh Golem", "Flying Snake", "Flying Sword", "Frog", "Frost Giant", "Gargoyle", "Gelatinous Cube", "Ghast", "Ghost", "Ghoul", "Giant Ape", "Giant Badger", "Giant Bat", "Giant Boar", "Giant Centipede", "Giant Constrictor Snake", "Giant Crab", "Giant Crocodile", "Giant Eagle", "Giant Elk", "Giant Fire Beetle", "Giant Frog", "Giant Goat", "Giant Hyena", "Giant Lizard", "Giant Octopus", "Giant Owl", "Giant Poisonous Snake", "Giant Rat", "Giant Rat (Diseased)", "Giant Scorpion", "Giant Sea Horse", "Giant Shark", "Giant Spider", "Giant Toad", "Giant Vulture", "Giant Wasp", "Giant Weasel", "Giant Wolf Spider", "Gibbering Mouther", "Glabrezu", "Gladiator", "Gnoll", "Goat", "Goblin", "Gold Dragon Wyrmling", "Gorgon", "Gray Ooze", "Green Dragon Wyrmling", "Green Hag", "Grick", "Griffon", "Grimlock", "Guard", "Guardian Naga", "Gynosphinx", "Half-Red Dragon Veteran", "Harpy", "Hawk", "Hell Hound", "Hezrou", "Hill Giant", "Hippogriff", "Hobgoblin", "Homunculus", "Horned Devil", "Hunter Shark", "Hydra", "Hyena", "Ice Devil", "Ice Mephit", "Imp", "Invisible Stalker", "Iron Golem", "Jackal", "Killer Whale", "Knight", "Kobold", "Kraken", "Lamia", "Lemure", "Lich", "Lion", "Lizard", "Lizardfolk", "Mage", "Magma Mephit", "Magmin", "Mammoth", "Manticore", "Marilith", "Mastiff", "Medusa", "Merfolk", "Merrow", "Mimic", "Minotaur", "Minotaur Skeleton", "Mule", "Mummy", "Mummy Lord", "Nalfeshnee", "Night Hag", "Nightmare", "Noble", "Ochre Jelly", "Octopus", "Ogre", "Ogre Zombie", "Oni", "Orc", "Otyugh", "Owl", "Owlbear", "Panther", "Pegasus", "Phase Spider", "Pit Fiend", "Planetar", "Plesiosaurus", "Poisonous Snake", "Polar Bear", "Pony", "Priest", "Pseudodragon", "Purple Worm", "Quasit", "Quipper", "Rakshasa", "Rat", "Raven", "Red Dragon Wyrmling", "Reef Shark", "Remorhaz", "Rhinoceros", "Riding Horse", "Roc", "Roper", "Rug of Smothering", "Rust Monster", "Saber-Toothed Tiger", "Sahuagin", "Salamander", "Satyr", "Scorpion", "Scout", "Sea Hag", "Sea Horse", "Shadow", "Shambling Mound", "Shield Guardian", "Shrieker", "Silver Dragon Wyrmling", "Skeleton", "Solar", "Specter", "Spider", "Spirit Naga", "Sprite", "Spy", "Steam Mephit", "Stirge", "Stone Giant", "Stone Golem", "Storm Giant", "Succubus/Incubus", "Swarm of Bats", "Swarm of Beetles", "Swarm of Centipedes", "Swarm of Insects", "Swarm of Poisonous Snakes", "Swarm of Quippers", "Swarm of Rats", "Swarm of Ravens", "Swarm of Spiders", "Swarm of Wasps", "Tarrasque", "Thug", "Tiger", "Treant", "Tribal Warrior", "Triceratops", "Troll", "Tyrannosaurus Rex", "Unicorn", "Vampire", "Vampire Spawn", "Veteran", "Violet Fungus", "Vrock", "Vulture", "Warhorse", "Warhorse Skeleton", "Water Elemental", "Weasel", "Werebear", "Wereboar", "Wererat", "Weretiger", "Werewolf", "White Dragon Wyrmling", "Wight", "Will-o'-Wisp", "Winter Wolf", "Wolf", "Worg", "Wraith", "Wyvern", "Xorn", "Young Black Dragon", "Young Blue Dragon", "Young Brass Dragon", "Young Bronze Dragon", "Young Copper Dragon", "Young Gold Dragon", "Young Green Dragon", "Young Red Dragon", "Young Silver Dragon", "Young White Dragon", "Zombie"],
     "--------------Tome of Beasts----------": ["Aboleth, Nihilith", "Nihilethic Zombie", "Abominable Beauty", "Accursed Defiler", "Ala", "Algorith", "Alseid", "Alseid Grovekeeper", "Amphiptere", "Andrenjinyi", "Angatra", "Angel, Chained", "Fidele Angel", "Angler Worm", "Giant Ant", "Giant Ant Queen", "Anubian", "Arboreal Grappler", "Aridni", "Asanbosam", "Azza Gremlin", "Baba Yaga's Horsemen, Black Night", "Baba Yaga's Horsemen, Bright Day", "Baba Yaga's Horsemen, Red Sun", "Bagiennik", "Bastet Temple Cat", "Bearfolk", "Behtu", "Beli", "Bereginyas", "Blemmyes", "Boloti", "Bone Collective", "Bone Crab", "Bone Swarm", "Bouda", "Broodiken", "Bucca", "Bukavac", "Buraq", "Burrowling", "Cactid", "Cambium", "Carrion Beetle", "Cavelight Moss", "Chelicerae", "Chernomoi", "Child Of The Briar", "Chronalmental", "Cikavak", "Clockwork Abomination", "Clockwork Beetle", "Clockwork Beetle Swarm", "Clockwork Hound", "Clockwork Huntsman", "Clockwork Myrmidon", "Clockwork Watchman", "Weaving Spider", "Clurichaun", "Cobbleswarm", "Corpse Mound", "Dau", "Death Butterfly Swarm", "Greater Death Butterfly Swarm", "Deathwisp", "Deep One", "Deep One Hybrid Priest", "Deep One Archimandrite", "Apau Perape", "Berstuc", "Kishi Demon", "Malakbel", "Psoglav Demon", "Rubezahl", "Skin Bat", "Derro Fetal Savant", "Derro Shadow Antipaladin", "Arbeyach", "Spawn Of Arbeyach", "Ia'affrat", "Automata Devil", "Chort Devil", "Crystalline Devil", "Gilded Devil", "Ink Devil", "Koralk (Harvester Devil)", "Lunar Devil", "Orobas Devil", "Salt Devil", "Mbielu", "Ngobou", "Spinosaurus", "Young Spinosaurus", "Dipsa", "Dissimortuum", "Dogmole", "Dogmole Juggernaut", "Domovoi", "Doppelrat", "Dorreq", "Adult Cave Dragon", "Young Cave Dragon", "Cave Dragon Wyrmling", "Ancient Flame Dragon", "Adult Flame Dragon", "Young Flame Dragon", "Flame Dragon Wyrmling", "Ancient Mithral Dragon", "Adult Mithral Dragon", "Young Mithral Dragon", "Ancient Sea Dragon", "Adult Sea Dragon", "Young Sea Dragon", "Sea Dragon Wyrmling", "Ancient Void Dragon", "Adult Void Dragon", "Young Void Dragon", "Void Dragon Wyrmling", "Ancient Wind Dragon", "Adult Wind Dragon", "Young Wind Dragon", "Wyrmling Wind Dragon", "Dragon Eel", "Dragonleaf Tree", "Alehouse Drake", "Ash Drake", "Coral Drake", "Crimson Drake", "Deep Drake", "Elder Shadow Drake", "Paper Drake", "Rust Drake", "Star Drake", "Drakon", "Dream Eater", "Drowned Maiden", "Duskthorn Dryad", "Dullahan", "Dune Mimic", "Eala", "Eater Of Dust (Yakat-Shi)", "Edimmu", "Eel Hound", "Einherjar", "Eleinomae", "Elemental Locus", "Shadow Fey", "Shadow Fey Duelist", "Shadow Fey Enchantress", "Shadow Fey Forest Hunter", "Shadow Fey Guardian", "Emerald Eye", "Empty Cloak", "Eonic Drifter", "Erina Scrounger", "Erina Defender", "Far Darrig", "Fate Eater", "Fear Smith", "Fellforged", "Fext", "Feyward Tree", "Firebird", "Firegeist", "Flutterflesh", "Folk Of Leng", "Forest Marauder", "Fraughashar", "Frostveil", "Garroter Crab", "Gbahali (Postosuchus)", "Gearforged Templar", "Al-Aeshma Genie", "Gerridae", "Beggar Ghoul", "Bonepowder Ghoul", "Ghoul, Darakhul", "Ghoul, Imperial", "Ghoul, Iron", "Desert Giant", "Flab Giant", "Hraesvelgr The Corpse Swallower", "Jotun Giant", "Thursir Giant", "Glass Gator", "Gnarljak", "Gnoll Havoc Runner", "Goat-Man", "Dust Goblin", "Eye Golem", "Hoard Golem", "Salt Golem", "Smaragdine Golem", "Steam Golem", "Gray Thirster", "Rum Gremlin", "Grim Jester", "Gug", "Blood Hag", "Mirror Hag", "Red Hag", "Sand Hag", "Owl Harpy", "Haugbui", "Herald Of Blood", "Herald Of Darkness", "Horakh", "Hound Of The Night", "Hulking Whelp", "Hundun", "Ice Maiden", "Idolic Deity", "Imy-Ut Ushabti", "Isonade", "Jaculus", "Kalke", "Kikimora", "Kobold Alchemist", "Kobold Chieftain", "Kobold Trapsmith", "Kongamato", "Koschei", "Kot Bayun", "Krake Spawn", "Lantern Dragonette", "Lemurfolk", "Lemurfolk Greyfur", "Leshy", "Library Automaton", "Lich Hound", "Likho", "Lindwurm", "Liosalfar", "Living Wick", "Lorelei", "Loxoda", "Mahoru", "Mallqui", "Malphas (Storm Crow)", "Mamura", "Mask Wight", "Mavka", "Mi-Go", "Millitaur", "Map Mimic", "Mindrot Thrall", "Mirager", "Miremal", "Mngwa", "Monolith Champion", "Monolith Footman", "Mordant Snare", "Morphoi", "Moss Lurker", "Venomous Mummy", "Deathcap Myconid", "Myling", "Naina", "Nichny", "Nightgarm", "Nkosi", "Nkosi Pridelord", "Nkosi War Ostrich", "Noctiny", "Oculo Swarm", "Oozasis", "Corrupting Ooze", "Ostinato", "Pombero", "Possessed Pillar", "Putrid Haunt", "Qwyllion", "Ramag", "Rat King", "Ratatosk", "Ratfolk", "Ratfolk Rogue", "Ravenala", "Ravenfolk Scout", "Ravenfolk Warrior", "Ravenfolk Doom Croaker", "Redcap", "Rift Swine", "Adult Rime Worm", "Rime Worm Grub", "Risen Reaver", "Roachling Skirmisher", "Roachling Lord", "Rotting Wind", "Rusalka", "Sand Silhouette", "Sandman", "Sandwyrm", "Sap Demon", "Sarcophagus Slime", "Sathaq Worm", "Savager", "Scheznyki", "Night Scorpion", "Stygian Fat-Tailed Scorpion", "Selang", "Serpopard", "Shabti", "Shadhavar", "Shadow Beast", "Shellycoat", "Shoggoth", "Shroud", "Skein Witch", "Sharkjaw Skeleton", "Vine Troll Skeleton", "Skitterhaunt", "Slow Storm", "Swamp Adder", "Zanskaran Viper", "Son Of Fenris", "Soul Eater", "Spark", "Spectral Guardian", "Gypsosphinx", "Ghostwalk Spider", "J'ba Fofi Spider", "Red-Banded Line Spider", "Sand Spider", "Spider Of Leng", "Spider Thief", "Spire Walker", "Star Spawn Of Cthulhu", "Stryx", "Stuhac", "Subek", "Suturefly", "Fire Dancer Swarm", "Manabane Scarab Swarm", "Prismatic Beetle Swarm", "Sluagh Swarm", "Wolf Spirit Swarm", "Temple Dog", "Thuellai", "Ancient Titan", "Degenerate Titan", "Titanoboa", "Tophet", "Tosculi Hive-Queen", "Tosculi Warrior", "Tosculi Drone", "Tosculi Elite Bow Raider", "Treacle", "Weeping Treant", "Lake Troll", "Trollkin Reaver", "Tusked Skyfish", "Uraeus", "Urochar (Strangling Watcher)", "Ushabti", "Vaettir", "Valkyrie", "Umbral Vampire", "Vapor Lynx", "Vesiculosa", "Vila", "Vile Barber", "Vine Lord", "Vine Lord's Tendril Puppet", "Voidling", "Wampus Cat", "Water Leaper", "Wharfling", "Wharfling Swarm", "White Ape", "Witchlight", "Wormhearted Suffragan", "Xanka", "Xhkarsh", "Ychen Bannog", "Zaratan", "Zimwi", "Zmey", "Zmey Headling", "Bandit Lord", "Black Knight Commander", "City Watch Captain", "Devilbound Gnomish Prince", "Dwarven Ringmage", "Elvish Veteran Archer", "Ghost Knight", "Ogre Chieftain, Corrupted", "Scorpion Cultist", "Wolf Reaver Dwarf", "Emerald Order Cult Leader", "Vampire Warlock - Variant"],
 };
 let selectedMonster = ''
 const statblock_data = {}
+
 const plusButtonSpeed = document.getElementById('add-speed')
 document.addEventListener('DOMContentLoaded',()=>{
     const base_url = 'https://www.dnd5eapi.co/api/'
@@ -11,7 +14,9 @@ document.addEventListener('DOMContentLoaded',()=>{
     const input1 = document.getElementById('search-input');
     const input2 = document.getElementById('input2');
     const submit = document.getElementById('submit-button');
+
     const info_container = document.getElementById('output');
+
     const infoToggleButton = document.getElementById('info-toggler');
     const monsterContainer = document.getElementById('monster-preset-container');
     
@@ -21,7 +26,6 @@ document.addEventListener('DOMContentLoaded',()=>{
     // const monster_form_selects = document.getElementsById('form-select')
     // const monster_form_textareas = document.getElementsById('form-textarea')
     const monster_form = document.getElementById('editor-form')
-    console.log(monster_form)
 
     const select = document.createElement('select');
     select.className = 'mb-4 bg-gray-600 bg-opacity-50 border border-gray-600 hover:border-indigo-500 hover:ring-2 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300 ';
@@ -73,24 +77,45 @@ document.addEventListener('DOMContentLoaded',()=>{
             showNotification(`Error displaying data: ${error}`,'bg-red-500')
         }
     }
+
+   
+
+
     
     function createInfoDiv(data) {
-        const div = document.createElement('div');
+        console.log(data)
+        const div = document.createElement('div'); // TODO: add damage vulnerabilities and resisitances
         div.className = 'p-4 bg-opacity-20 bg-black rounded-lg shadow-lg backdrop-blur-sm backdrop-filter';
         div.innerHTML = `
-            <div class="rounded text-white">${formatBasicInfoMON(data)}</div>
-            <div class="rounded text-white">${formatSpeed(data)}</div>
-            <div class="rounded text-white">${formatAbilities(data)}</div>
-            <div class="rounded text-white">${formatAttributes(data, 'Saving Throw')}</div>
-            <div class="rounded text-white">${formatAttributes(data, 'Skill')}</div>
-            <div class="rounded text-white">${formatMoreAttributes(data)}</div>
-            <div class="rounded text-white">${formatSpecialAbilities(data)}</div>
-            <div class="rounded text-white">${formatActions(data)}</div>
-            <div class="rounded text-white">${formatLegnedaryActions(data)}</div>
+            <div class="rounded text-white" id="basic_info">${formatBasicInfoMON(data)}</div>
+            <div class="rounded text-white" id="speed">${formatSpeed(data)}</div>
+            <div class="rounded text-white" id="abilities">${formatAbilities(data)}</div>
+            <div class="rounded text-white"id="saves">${formatAttributes(data, 'Saving Throw')}</div>
+            <div class="rounded text-white" id="skills">${formatAttributes(data, 'Skill')}</div>
+            <div class="rounded text-white" id="other_attributes">${formatMoreAttributes(data)}</div>
+            <div class="rounded text-white" id="special_abilities">${formatSpecialAbilities(data)}</div>
+            <div class="rounded text-white" id="actions">${formatActions(data)}</div>
+            <div class="rounded text-white" id="legendary_actions">${formatLegnedaryActions(data)}</div>
         `;
+        const submitEditButton = document.getElementById('submit-edit')
+        submitEditButton.onclick = function() {
+            console.log('attemptin to edit original data')
+            document.getElementById('basic_info').innerHTML = `<div class="text-lg font-semibold text-white space-y-2">
+                <p class="font-bold">${document.getElementById('name').value}</p>
+                <p class="text-italic"> ${document.getElementById('size').value} ${document.getElementById('type').value}, ${document.getElementById('alignment1').value + document.getElementById('alignment2').value}</p>
+                <p class="font-bold"> Armor Class: ${document.getElementById('armor_class').value} (${document.getElementById('armor_class_type').value})</p>
+                <div class="flex text-md items-center">
+    
+    
+                </div>
+            </div>`
+        }
         return div;
     }
     function setEditor(data, monster_form){
+        // const editorHTML = monster_form
+        // editorHTML = resetEditor()
+        // TODO: subtract extra selects/inputs/textareas
         // console.log(data['type'].charAt(0).toUpperCase() + data['type'].slice(1))
         document.getElementById('ability-name').value = ''
         document.getElementById('ability-desc').value = ''
@@ -153,28 +178,89 @@ document.addEventListener('DOMContentLoaded',()=>{
                 addProf('skill', proficiency.split(' +')[0])
             })
         }
-        document.getElementById('sense-number').value = data['senses']['passive_perception']
-        // if (data['senses'].length > 1){
 
+        document.getElementById('sense-number').value = data['senses']['passive_perception']
             Object.entries(data['senses']).slice(0,-1).forEach(sense => {
                 console.log(sense)
                 console.log(sense[1].split(' ft.')[0])
                 addSense(sense[0], sense[1].split(' ft.')[0])
             })
-        // }
+
+        const languages_list = data['languages'].split(',')
+        if (languages_list.length > 0){
+            if (languages_list  === 'Deep Speech'){
+                languages_list[0] = 'Deep-speech'
+            }
+            document.getElementById('languages').value = languages_list[0]
+        }
+        if (languages_list.length > 1){
+            languages_list.slice(1).forEach(language => {
+                addLanguage(language)
+            })
+        }
+
         document.getElementById('challenge_rating').value = data['challenge_rating']
-        data['special_abilities'].forEach(ability =>{
-            document.getElementById('ability-name').value += ability['name'] + '\n'
-            document.getElementById('ability-desc').value += ability['desc']
-        })
+
+        if (data['special_abilities'].length > 0){
+            document.getElementById('ability-name').value = data['special_abilities'][0]['name']
+            document.getElementById('ability-desc').value = data['special_abilities'][0]['desc']
+        }
+        if (data['special_abilities'].length > 1){
+            data['special_abilities'].slice(1).forEach( ability => {
+                addTextAbility('ability', ability['name'], ability['desc'])
+            })
+        }
+
+        if (data['actions'].length > 0){
+            document.getElementById('action-name').value = data['actions'][0]['name']
+            document.getElementById('action-desc').value = data['actions'][0]['desc']
+        }
+        if (data['actions'].length > 1){
+            data['actions'].slice(1).forEach(action => {
+                addTextAbility('action', action['name'], action['desc'])
+            })
+        }
+
+        if (data['legendary_actions'].length > 0){
+            document.getElementById('legendary-action-name').value = data['legendary_actions'][0]['name']
+            document.getElementById('legendary-action-desc').value = data['legendary_actions'][0]['desc']
+        }
+        if (data['legendary_actions'].length > 1){
+            data['legendary_actions'].slice(1).forEach(action => {
+                addTextAbility('legendary', action['name'], action['desc'])
+            })
+        }
 
     }
 
+
+
+    function resetEditor(){
+        const formHTML = document.getElementById('editor-form').innerHTML
+        formHTML = myFormHTML
+        
+        // TODO: FIXME: UPDATE AS HTML IS CHANGED. do not copy the form itself, just the innerHTML.
+        return formHTML
+    }
 
     infoToggleButton.addEventListener('click',()=>{
         const info = document.getElementById('info');
         info.classList.toggle('hidden')
     })
+
+    const language_select = document.getElementById('languages')
+    language_select.addEventListener('change', ()=>{
+        if (language_select.value === 'Other'){
+            const input = document.createElement('input')
+            input.classList = "mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300";
+            input.placeholder = 'Type other language';
+
+            document.getElementById('additional-languages').appendChild(input)
+        }
+    })
+
+
+
     function formatBasicInfoMON(data) {
         //dnd info
         // hp format: (num of dice)d(die size) + (modifier)
@@ -189,7 +275,6 @@ document.addEventListener('DOMContentLoaded',()=>{
                     </div>
                 </div>`;
     }
-    
     
     function formatSpeed(data) {
         
@@ -224,9 +309,6 @@ document.addEventListener('DOMContentLoaded',()=>{
 
     }
     
-    
-    
-    
     function formatAttributes(data, type) {
         
         const proficiencies = data['proficiencies']
@@ -235,7 +317,12 @@ document.addEventListener('DOMContentLoaded',()=>{
             ;
             
         console.log(proficiencies)
-        let htmlContent = `<div class="flex items-center">${type}s:` // TODO: change so that there is a space at the end of this line
+        let htmlContent = ''
+        if (proficiencies.length > 0){
+            htmlContent = `<div class="flex items-center">${type}s:` // TODO: change so that there is a space at the end of this line
+        }
+
+
         if (proficiencies.length > 0){
             proficiencies.forEach((proficiency)=>{
                 const mod = proficiency.split(' ')
@@ -248,6 +335,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         return htmlContent + '</div>'
         
     }
+
     function formatMoreAttributes(data) {
         let htmlContent = '<div>';
     
@@ -298,7 +386,6 @@ document.addEventListener('DOMContentLoaded',()=>{
         return htmlContent;
     }
 
-
     Object.entries(monster_names).forEach(([category, monsters], index, array) => {
         const optgroup = document.createElement('optgroup');
         optgroup.label = category; // Set the category name
@@ -320,9 +407,16 @@ document.addEventListener('DOMContentLoaded',()=>{
        
     })
     
+   
 
     monsterContainer.appendChild(select);
 })
+
+// END OF DOM CONTENT LOADED
+
+// submitEditButton.addEventListener('click',submitEdit())
+
+
 function addSpeed(type='walk', speed=30){
     const container = document.getElementById('additional-speeds')
     const speed_group = document.createElement('div')
@@ -396,54 +490,137 @@ function addProf(type, profParameter = null){
     }
     container.appendChild(prof_select) 
 }
-    function addSense(valueSet = null, numValue = null){
-        const container = document.getElementById('additional-senses')
-        const senseSelect = document.createElement('select')
-        senseSelect.innerHTML = `<optgroup label="Senses">
-                <option value="darkvision">Darkvision</option>
-                <option value="Blindsight">Blindsight</option>
-                <option value="Truesight">Truesight</option>
-                <option value="Tremorsense">Tremorsense</option>
-                <option value="Other">Other</option>
-            </optgroup>`
-        senseSelect.classList = "mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
-        if (valueSet !== null){
-            senseSelect.value = valueSet
-        }
 
-        const senseNumber = document.createElement('input')
-        senseNumber.classList = "form-input mb-4 ml-2 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
-        senseNumber.type = "number"
-        senseNumber.placeholder = "ft."
-        if (numValue !== null){
-            senseNumber.value = numValue
-        }
-        container.classList = "flex col-span-4"
-        container.appendChild(senseSelect)
-        container.appendChild(senseNumber)
+function addSense(valueSet = null, numValue = null){
+    const container = document.getElementById('additional-senses')
+    const div = document.createElement('div')
+    div.classList.add('flex')
+    const senseSelect = document.createElement('select')
+    senseSelect.innerHTML = `<optgroup label="Senses">
+            <option value="darkvision">Darkvision</option>
+            <option value="Blindsight">Blindsight</option>
+            <option value="Truesight">Truesight</option>
+            <option value="Tremorsense">Tremorsense</option>
+            <option value="Other">Other</option>
+        </optgroup>`
+    senseSelect.classList = "mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
+    if (valueSet !== null){
+        senseSelect.value = valueSet
     }
-    function addTextAbility(type){
-        const container = document.getElementById(`additional-${type}`)
-        const ability = document.createElement('div')
-        ability.classList.add('flex','my-4','p-4','bg-gray-600','bg-opacity-10','border-2','border-gray-600','hover:border-indigo-500','rounded-lg','transition','duration-300') // TODO: draggable
-        const name = document.createElement('input')
-        name.type = 'text'
-        name.id = `${type}-name`
-        name.classList = "form-input mb-4 w-1/3 bg-gray-600 bg-opacity-30 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
-        name.placeholder = `${type.charAt(0).toUpperCase() + type.slice(1)} name`
-        const desc = document.createElement('textarea')
-        desc.classList = "form-textarea ml-2 w-2/3 bg-gray-600 bg-opacity-30 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 rounded-md transition duration-300" 
-        desc.placeholder = `${type.charAt(0).toUpperCase() + type.slice(1)} description`
-        if (type==='legendary'){
-            name.placeholder = 'Legendary Action name'
-            desc.placeholder = 'Legendary Action description'
-        }
-        desc.id = `${type}-desc`
-        ability.appendChild(name)
-        ability.appendChild(desc)
-        container.appendChild(ability)
 
+    const senseNumber = document.createElement('input')
+    senseNumber.classList = "form-input mb-4 ml-2 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
+    senseNumber.type = "number"
+    senseNumber.placeholder = "ft."
+    if (numValue !== null){
+        senseNumber.value = numValue
     }
+    div.classList = "flex w-full col-span-4"
+    div.appendChild(senseSelect)
+    div.appendChild(senseNumber)
+    container.appendChild(div)
+}
+
+function addLanguage(presetValue = null){
+    const container = document.getElementById('additional-languages')
+    const select = document.createElement('select');
+    select.classList = "mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300";
+    select.innerHTML = `
+        <optgroup label="Common Languages">
+            <option value="Common">Common</option>
+            <option value="Dwarvish">Dwarvish</option>
+            <option value="Elvish">Elvish</option>
+            <option value="Giant">Giant</option>
+            <option value="Gnomish">Gnomish</option>
+            <option value="Goblin">Goblin</option>
+            <option value="Halfling">Halfling</option>
+            <option value="Orc">Orc</option>
+        </optgroup>
+        <optgroup label="Rare Languages">
+            <option value="Abyssal">Abyssal</option>
+            <option value="Celestial">Celestial</option>
+            <option value="Deep-speech">Deep Speech</option>
+            <option value="Draconic">Draconic</option>
+            <option value="Infernal">Infernal</option>
+            <option value="Primordial">Primordial</option>
+            <option value="Sylvan">Sylvan</option>
+            <option value="Undercommon">Undercommon</option>
+        </optgroup>
+        <optgroup label="Other">
+            <option value="Telepathy">Telepathy</option>
+            <option value="Other">Other</option>
+        </optgroup>`;
+    
+    // Create the input element for custom value
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.classList = "mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300";
+    input.style.display = 'none'; // Hide the input by default
+    input.placeholder = 'Type other language';
+
+    // Add event listener to select element to show/hide input
+    select.addEventListener('change', function() {
+        if (this.value === 'Other') {
+            container.classList.add('flex','space-x-3')
+            input.style.display = 'block';
+        } else {
+            input.style.display = 'none';
+        }
+    });
+    // Append select and input elements to the container
+    container.appendChild(select);
+    container.appendChild(input);
+
+
+
+    // add a plue button if user is typing custom language
+    // when they click button 
+    // addLanguage(customLanguage.value)
+}
+
+
+
+function addTextAbility(type, setName = null, setDesc = null){
+    const container = document.getElementById(`additional-${type}`)
+    const ability = document.createElement('div')
+    ability.classList.add('flex','my-4','p-4','bg-gray-600','bg-opacity-10','border-2','border-gray-600','rounded-lg') // TODO: draggable
+    const name = document.createElement('input')
+    name.type = 'text'
+    name.id = `${type}-name`
+    name.classList = "form-input mb-4 w-1/3 bg-gray-600 bg-opacity-30 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
+    name.placeholder = `${type.charAt(0).toUpperCase() + type.slice(1)} name`
+    if (setName !== null){
+        name.value = setName
+    }
+
+    const desc = document.createElement('textarea')
+    desc.classList = "ml-2 w-2/3 bg-gray-600 bg-opacity-30 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 rounded-md transition duration-300" 
+    desc.placeholder = `${type.charAt(0).toUpperCase() + type.slice(1)} description`
+    if (setDesc !== null){
+        desc.value = setDesc
+    }
+
+    if (type==='legendary'){
+        name.placeholder = 'Legendary Action name'
+        desc.placeholder = 'Legendary Action description'
+    }
+    desc.id = `${type}-desc`
+    ability.appendChild(name)
+    ability.appendChild(desc)
+    container.appendChild(ability)
+
+}
+function submitEdit(){
+    document.getElementById('basic_info').innerHTML = `<div class="text-lg font-semibold text-white space-y-2">
+            <p class="font-bold">${document.getElementById('name').value}</p>
+            <p class="text-italic"> ${document.getElementById('size').value} ${document.getElementById('type').value}, ${document.getElementById('alignment1').value + document.getElementById('alignment2').value}</p>
+            <p class="font-bold"> Armor Class: ${document.getElementById('armor_class').value} (${document.getElementById('armor_class_type').value})</p>
+            <div class="flex text-md items-center">
+
+
+            </div>
+        </div>`
+}
 
     function formatSpecialAbilities(data){
         let htmlContent = '<hr><br><div>'
@@ -645,3 +822,6 @@ function addProf(type, profParameter = null){
         }
 
     }
+
+
+    

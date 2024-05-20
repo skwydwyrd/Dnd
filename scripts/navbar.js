@@ -7,16 +7,15 @@ document.addEventListener('DOMContentLoaded', function() {
     // join this back to a string
     // add a / at the end
     const basePath = window.location.pathname.split('/').slice(0,-1).join('/') + '/';
-    console.log(basePath);
-    // TODO: make it work so that if the screen is small, only player resources, game master resources, books and rules, and new releases show up
+    // TODO: make it work so that if the screen is small, only player resources, game master resources, books and rules, and statblock show up
     const links = [
-        { name: 'Categories', href: 'categories.html'},
+        // { name: 'Categories', href: 'categories.html'},
         { name: 'New Releases', href: 'new-releases.html'},
         { name: 'Combat Tracker', href: 'combat-tracker.html'},
         { name: 'Statblock Generator', href: 'statblock-generator.html'},
-        { name: 'Encounter Generator', href: 'encounter-generator.html' },
+        { name: 'Encounter Calculator', href: 'encounter-generator.html' },
         { name: 'Player Resources', href: 'player-resources.html' },
-        // { name: 'Game Master Resources', href: 'dm-resources.html' },
+        { name: 'Game Master Resources', href: 'dm-resources.html' },
         { name: 'Books and Rules', href: 'books-rules.html' }
     ]
 
@@ -25,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         shadow-md shadow-indigo-700 h-[10%]`
     const navbarHTML = `
     <div id="navbar" class="${navbarStyles}">
-        <nav class="space-x-2 flex p-2 h-full w-full text-sm items-center justify-center text-center">
+        <nav class="overflow-x-auto space-x-2 flex p-2 h-full w-full text-sm items-center justify-center text-center">
             <a href='../index.html'>
                 <img class="object-fill w-24 h-10 rounded-md hover:bg-indigo-800 items-center justify-center" src="../images/DNDampersand.jpeg" alt="Logo/Home"/>
             </a>
@@ -46,7 +45,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.body.insertAdjacentHTML('afterbegin', navbarHTML);
 
     const darkModeButton = document.getElementById('dark-mode')
-    console.log(darkModeButton)
     darkModeButton.addEventListener('click',()=>{
         const darkLight = document.getElementById('dark/light')
         darkLight.classList.toggle('bg-gray-950')

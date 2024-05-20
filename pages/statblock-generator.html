@@ -5,7 +5,12 @@
      
         
         <script src="https://cdn.tailwindcss.com"></script>
-
+        <style>
+            .myTextArea{
+                height:max-content;
+                background-color:white;
+            }
+        </style>
     </head>
 
     <body class="bg-gray-300 bg-gray-950 items-center overflow-y-auto text-black text-gray-200" id="dark/light">
@@ -15,7 +20,7 @@
                     Statblock Generator
                 </h2>
             </div>
-            <div class="sticky top-[70px] h-8 bg-opacity-50 z-10 bg-blue-700 rounded p-1 ml-2 m-4 hidden"
+            <div class="sticky top-[70px] h-8 bg-opacity-60 z-10 bg-blue-700 rounded p-1 ml-2 m-4 hidden filter backdrop-blur-md"
                 id="roll-result-display">
             </div>
             <div id="notification" class="hidden p-2 text-white"></div>
@@ -54,7 +59,7 @@
             </div>
             <div class="sticky w-full max-w-4xl mx-auto p-6 bg-gray-700 bg-opacity-50 rounded-lg shadow-lg">
                 <h2 class="text-xl text-center mb-6">Edit Statblock</h2>
-                <form class="w-full grid grid-cols-4 gap-4" id="editor-form">
+                <form class="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="editor-form">
                     <input class="form-input col-span-4  bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
                         type="text" 
                         placeholder="Name" 
@@ -313,13 +318,20 @@
                                 <option value="Sylvan">Sylvan</option>
                                 <option value="Undercommon">Undercommon</option>
                             </optgroup>
+                            <optgroup label="Other">
+                                <option value="Telepathy">Telepathy</option>
+                                <option value="Other">Other</option>
+                            </optgroup>
                         </select>
                         <button 
                             class="w-12 ml-2 p-2 h-12 bg-gray-600 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 bg-opacity-50 rounded-lg transition duration-300"
-                            id="add-language">
+                            id="add-language"
+                            onclick="addLanguage()"
+                            type="button">
                             +
                         </button>
                     </div>
+                    <div class="w-full col-span-4" id="additional-languages"></div>
                     <input class="col-span-4 mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
                         type="number"
                         min="0"
@@ -363,7 +375,7 @@
                                 id="action-name"
                                 placeholder="Action name">
                             <textarea 
-                                class="form-textarea ml-2 w-2/3 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 rounded-md transition duration-300" 
+                                class="ml-2 w-2/3 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 rounded-md transition duration-300"
                                 placeholder="Action description"
                                 id="action-desc">
                             </textarea>
@@ -404,7 +416,8 @@
                     </div>
                     <button 
                         class="col-span-2 md:col-span-3 lg:col-span-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 font-bold py-2 px-4 mt-6 rounded rounded-md transition duration-300"
-                        id="submit_edit">
+                        id="submit-edit"
+                        type="button">
                         Submit
                     </button>
                 </form>
@@ -417,8 +430,23 @@
 
         </main>
 
+        <!-- <script>
+            function submitEdit(){
+                document.getElementById('basic_info').innerHTML = `<div class="text-lg font-semibold text-white space-y-2">
+                <p class="font-bold">${document.getElementById('name').value}</p>
+                <p class="text-italic"> ${document.getElementById('size').value} ${document.getElementById('type').value}, ${document.getElementById('alignment1').value + document.getElementById('alignment2').value}</p>
+                <p class="font-bold"> Armor Class: ${document.getElementById('armor_class').value} (${document.getElementById('armor_class_type').value})</p>
+                <div class="flex text-md items-center">
+                    <p class="font-bold"> Hit Points: ${data['hit_points']}</p>
+                    <button class="bg-blue-700 rounded p-1 ml-2" onclick="roll('Hit Points','${data['hit_points_roll']}')">${document.getElementById('hit_dice').value}</button>
+            
+                </div>
+            </div>`
+            }
+        </script> -->
+
         <script src="../scripts/navbar.js"></script>
-        <script src="../scripts/statblock-generator.js"></script>
+        <script type="module" src="../scripts/statblock-generator.js"></script> <!-- module type is for importing/exporting stuff-->
         
 
     </body>
