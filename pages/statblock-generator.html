@@ -20,7 +20,7 @@
                     Statblock Generator
                 </h2>
             </div>
-            <div class="sticky top-[70px] h-8 bg-opacity-60 z-10 bg-blue-700 rounded p-1 ml-2 m-4 hidden filter backdrop-blur-md"
+            <div class="sticky top-[70px] h-8 bg-opacity-60 z-10 bg-blue-700 rounded p-1 ml-2 m-4 filter backdrop-blur-md"
                 id="roll-result-display">
             </div>
             <div id="notification" class="hidden p-2 text-white"></div>
@@ -65,8 +65,8 @@
                         placeholder="Name" 
                         id="name"
                         >
-                    <div class="col-span-4 flex space-x-3">
-                        <select class="form-select mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
+                    <div class="col-span-2 flex space-x-3">
+                        <select class="form-select bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
                             id="size">
                             <optgroup label="Size">
                                 <option value="Tiny">Tiny</option>
@@ -78,7 +78,7 @@
                                 <option value="Other">Other</option>
                             </optgroup>
                         </select>
-                        <select class="form-select mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
+                        <select class="form-select bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
                             id="type">
                             <optgroup label="Type">
                                 <option value="Aberration">Aberration</option>
@@ -98,12 +98,14 @@
                                 <option value="Other">Other</option>
                             </optgroup>
                         </select>
-                        <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
+                    </div>
+                    <div class="col-span-2 flex space-x-3">
+                        <input class="form-input bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
                             type="text" 
                             placeholder="Subtype/Tag" 
                             id="subtype"
                             >
-                        <select class="form-select mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
+                        <select class="form-select bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
                             id="alignment1">
                             <optgroup label="Alignment (Lawful - Chaotic)">
                                 <option value="lawful">Lawful</option>
@@ -112,7 +114,7 @@
                                 <option value="other">Other</option>
                             </optgroup>
                         </select>
-                        <select class="form-select mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
+                        <select class="form-select bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
                             id="alignment2">
                             <optgroup label="Alignment (Evil - Good)">
                                 <option value="evil">Evil</option>
@@ -123,18 +125,18 @@
                         </select>
                     </div>
                     <div class="col-span-4 flex space-x-3">
-                        <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
+                        <input class="form-input bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
                             type="number" 
                             placeholder="Armor Class" 
                             id="armor_class"
                             >
-                        <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
+                        <input class="form-input bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
                             type="text" 
                             placeholder="Armor Class Type" 
                             id="armor_class_type"
                             >
                     </div>
-                    <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
+                    <input class="form-input bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
                         type="text" 
                         placeholder="Hit Dice" 
                         id="hit_dice"
@@ -161,50 +163,52 @@
                         <button 
                             class="w-12 ml-2 p-2 h-12 bg-gray-600 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 bg-opacity-50 rounded-lg transition duration-300"
                             id="add-speed"
-                            onclick="addSpeed()"
+                         
                             type="button">
                             +
                         </button>
                         </div>
                     </div>
-                    <div class="w-full col-span-4 mb-4" id="additional-speeds"></div>
-                    <div class="col-span-4 flex space-x-3">
-                        <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
+                    <div class="w-full col-span-4 hidden" id="additional-speeds"></div>
+                    <div class="col-span-2 flex space-x-3">
+                        <input class="form-input bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
                             type="number" 
                             min="1"
                             max="30"
                             placeholder="Strength" 
                             id="strength"
                             >
-                        <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
+                        <input class="form-input bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
                             type="number"
                             min="1"
                             max="30" 
                             placeholder="Dexterity" 
                             id="dexterity"
                             >
-                        <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
+                        <input class="form-input bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
                             type="number" 
                             min="1"
                             max="30"
                             placeholder="Constitution" 
                             id="constitution"
                             >
-                        <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
+                    </div>
+                    <div class="col-span-2 flex space-x-3">
+                        <input class="form-input bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
                             type="number" 
                             min="1"
                             max="30"
                             placeholder="Intelligence" 
                             id="intelligence"
                             >
-                        <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
+                        <input class="form-input bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
                             type="number"
                             min="1"
                             max="30" 
                             placeholder="Wisdom" 
                             id="wisdom"
                             >
-                        <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
+                        <input class="form-input bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
                             type="number"
                             min="1"
                             max="30" 
@@ -228,12 +232,11 @@
                         <button 
                             class="w-12 ml-2 p-2 h-12 bg-gray-600 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 bg-opacity-50 rounded-lg transition duration-300"
                             id="add-save"
-                            onclick="addProf('save')"
                             type="button">
                             +
                         </button>
                     </div>
-                    <div class="w-full col-span-4 mb-4" id="additional-saves"></div>
+                    <div class="w-full col-span-4 mb-4 hidden" id="additional-saves"></div>
                     <div class="flex col-span-4">
                         <select class="form-select bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-hand transition duration-300"
                             id="skills">
@@ -267,7 +270,7 @@
                             +
                         </button>
                     </div>
-                    <div class="w-full col-span-4" id="additional-skills"></div>
+                    <div class="w-full col-span-4 hidden" id="additional-skills"></div>
                     <div class="flex col-span-4">
                         <select class="form-select mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
                             id="senses">
@@ -294,7 +297,7 @@
                             +
                         </button>
                     </div>
-                    <div class="w-full col-span-4" id="additional-senses"></div>
+                    <div class="w-full col-span-4 hidden" id="additional-senses"></div>
                     <div class="flex col-span-4">
                         <select class="form-select mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
                             id="languages">
@@ -331,7 +334,7 @@
                             +
                         </button>
                     </div>
-                    <div class="w-full col-span-4" id="additional-languages"></div>
+                    <div class="w-full col-span-4 hidden" id="additional-languages"></div>
                     <input class="col-span-4 mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
                         type="number"
                         min="0"
@@ -362,7 +365,7 @@
                                 +
                             </button>
                         </div>
-                        <div class="text-center" id="additional-ability"></div>
+                        <div class="text-center hidden" id="additional-ability"></div>
                     </div>
                     <div class="col-span-2 md:col-span-3 lg:col-span-4 mb-10">
                         <h2 class="text-center">
@@ -387,7 +390,7 @@
                                 +
                             </button>
                         </div>
-                        <div class="text-center" id="additional-action"></div>
+                        <div class="text-center hidden" id="additional-action"></div>
                     </div>
                     <div class="col-span-2 md:col-span-3 lg:col-span-4 mb-10">
                         <h2 class="text-center">
@@ -412,7 +415,7 @@
                                 +
                             </button>
                         </div>
-                        <div class="text-center" id="additional-legendary"></div>
+                        <div class="text-center hidden" id="additional-legendary"></div>
                     </div>
                     <button 
                         class="col-span-2 md:col-span-3 lg:col-span-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 font-bold py-2 px-4 mt-6 rounded rounded-md transition duration-300"
