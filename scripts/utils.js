@@ -274,7 +274,8 @@ export function createRollButton(roll_type, dice_formula, message, damagesJSON =
     button.onclick =  () => {
         roll(roll_type, dice_formula, encodedDamages)   
     }
-         
+    
+
     ;
     return button;
 }
@@ -295,3 +296,4 @@ function rollDice(dice_formula) {
     }
     return sum + modifier;
 }
+ 
