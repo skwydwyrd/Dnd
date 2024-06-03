@@ -15,11 +15,12 @@ export function createInfoDiv(data) {
     return div;
 }
 
-function createSection(id, innerHTML) {
+function createSection(id, content) {
     const section = document.createElement('div');
     section.className = 'rounded text-white';
     section.id = id;
-    section.innerHTML = innerHTML;
+    section.innerHTML = '';
+    section.appendChild(content instanceof HTMLElement ? content : document.createRange().createContextualFragment(content));
     return section;
 }
 
@@ -37,6 +38,7 @@ export function showNotification(message, messageColor) {
 
 function formatBasicInfoMON(data) {
     const container = document.createElement('div');
+    container.id = 'basicInfo'
     container.className = 'text-lg font-semibold text-white space-y-2';
 
     const nameElement = document.createElement('p');
@@ -84,19 +86,32 @@ function formatAttributes(data, type) {
         .filter(prof => prof.proficiency.name.startsWith(type))
         .map(prof => `${prof.proficiency.name.split(': ')[1]} +${prof.value}`);
 
-    let htmlContent = '';
+    const div = document.createElement('div')
+    div.classList = "flex items-center"
+    div.innerText = type+'s: '
     if (proficiencies.length > 0) {
-        htmlContent = `<div class="flex items-center">${type}s: `;
         proficiencies.forEach(proficiency => {
             const mod = proficiency.split(' ');
-            htmlContent += `<p>${mod[0]}  </p>
-            <button class="bg-blue-700 rounded p-1 m-2" onclick="roll('${type === 'Skill' ? mod[0] + ' Check ' : mod[0] + ' ' + type} ', '1d20${mod[1]}')">
-            ${mod[1]}
-            </button>`;
-        });
-        htmlContent += '</div>';
+            const p = document.createElement('p')
+            p.innerText = mod[0]
+            const roll_type = type === 'Skill' ? mod[0] + ' Check ' : mod[0] + ' ' + type
+            const dice_formula = `1d20${mod[1]}`
+            const button = createRollButton(roll_type, dice_formula, mod[1])
+            div.appendChild(p)
+            div.appendChild(button)
+        })
+        
+        // htmlContent = `<div class="flex items-center">${type}s: `;
+        // proficiencies.forEach(proficiency => {
+        //     const mod = proficiency.split(' ');
+        //     htmlContent += `<p>${mod[0]}  </p>
+        //     <button class="bg-blue-700 rounded p-1 m-2" onclick="roll('${type === 'Skill' ? mod[0] + ' Check ' : mod[0] + ' ' + type} ', '1d20${mod[1]}')">
+        //     ${mod[1]}
+        //     </button>`;
+        // });
+        // htmlContent += '</div>';
     }
-    return htmlContent;
+    return div.outerHTML;
 }
 
 function formatAbilities(data) {
@@ -258,27 +273,34 @@ export function roll(roll_type, dice_formula, damagesJson = '[]') {
     }
 }
 
+function appendButtonToContainer(container, button){
 
-export function createRollButton(roll_type, dice_formula, message, damagesJSON = '[]') {
-
-    const encodedDamages = encodeURIComponent(damagesJSON);
-    const button = document.createElement('button');
-    button.innerText = message;
-    button.classList = 'bg-blue-700 rounded p-1 ml-2';  // this works
-
-    button.addEventListener('mouseover', () => { // this doesn't
-        console.log('Mouse over button!');
-        button.classList = 'bg-red-700 rounded p-1 ml-2'
-    });
-
-    button.onclick =  () => {
-        roll(roll_type, dice_formula, encodedDamages)   
+    // Clear the container / ensure it doesn't replace existing elements incorrectly
+    while(container.firstChild) {
+        container.removeChild(container.firstChild)
     }
-    
 
-    ;
-    return button;
+    // Append the button
+    container.appendChild(button)
 }
+
+
+// export function createRollButton(roll_type, dice_formula, message, damagesJSON = '[]') {
+//     const encodedDamages = encodeURIComponent(damagesJSON);
+//     const button = document.createElement('button');
+//     button.innerText = message;
+//     button.classList = 'bg-blue-700 rounded p-1 ml-2';  // this works
+
+//     button.addEventListener('mouseover', () => { // this doesn't
+//         console.log('Mouse over button!');
+//         button.classList = 'bg-red-700 rounded p-1 ml-2'
+//     });
+
+//     button.addEventListener('click',() => {
+//         roll(roll_type, dice_formula, encodedDamages)   
+//     })
+//     return button;
+// }
 
 
 
