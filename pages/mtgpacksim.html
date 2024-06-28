@@ -1,0 +1,138 @@
+<!-- <!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+    <body class="bg-gray-300 bg-gray-950 items-center overflow-y-auto text-white">
+        <h1 class="text-3xl text-center pt-6">Magic the Gathering Booster Pack Simulator</h1>  
+        <main>
+            <div class="grid grid-cols-12">
+                <button 
+                    class="col-span-11 bg-gray-800 border-2 border-gray-700 w-full h-12"
+                    type="button"
+                    >
+                    Modern Horizons 3 (MH3)
+                </button>
+                <button
+                    class="bg-gray-800 border-2 border-gray-700 w-full h-12"
+                    type="button"
+                    onclick="showStats('mh3', 'mh3-stats')"
+                    >
+                    {down arrow}
+                </button>
+                <div class="col-span-12" id="mh3-stats"></div>
+
+            </div>
+        </main>
+        <script src="mtgpacksim.js"></script>
+    </body>
+</html> -->
+
+
+
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+     
+        
+        <script src="https://cdn.tailwindcss.com"></script>
+
+    </head>
+
+    <body class="bg-gray-300 bg-gray-950 items-center overflow-y-auto text-black text-gray-200" id="dark/light">
+        <main>
+            <div class="flex items-center justify-center">
+                <h2 class="text-2xl m-4 p-4 text-center">
+                    Magic the Gathering Booster Pack Simulator
+                </h2>
+            </div>
+            <div id="notification" class="hidden p-2 text-white"></div>
+            <div>
+                <!-- Sets -->
+                    <!-- Set Template: -->
+                <!-- <div class="items-center p-2 border-y-2 border-gray-600 flex gap-6 bg-gray-800 justify-center w-full">
+                        <p>SETNAME (SET ABRV.)</p>
+                        <button
+                            class="bg-gray-700 px-2 h-10 rounded-md"
+                            type="button"
+                            id="SET ABRV.-stat-btn"
+                            onclick="showStats('set abrv.', 'set abrv.-stats')"
+                            >
+                            Set Stats
+                        </button>
+                        <button 
+                            class="bg-gray-700 px-2 h-9 rounded-md"
+                            id="SET ABRV.-run-btn"
+                            >
+                            Run SET ABRV.
+                        </button>
+                    </div>
+                    <div class="col-span-12 hidden" id="set abrv.-stats"></div> -->
+                    
+                <div class="items-center p-2 border-y-2 border-gray-600 flex gap-6 bg-gray-800 justify-center w-full">
+                    
+                    <p>Modern Horizons 3 (MH3)</p>
+                    <button
+                        class="bg-gray-700 px-2 h-10 rounded-md"
+                        type="button"
+                        id="mh3-stat-btn"
+                        onclick="showStats('mh3', 'mh3-stats')"
+                        >
+                        Set Stats
+                    </button>
+                    <a 
+                        class="bg-gray-700 px-2 py-1 rounded-md"
+                        id="mh3-run-link"
+                        href="./sets/mh3.html"
+                        >
+                        Run MH3
+                </a>
+                </div>
+                <div class="col-span-12 hidden" id="mh3-stats"></div>
+                <div class="mt-2 items-center p-2 border-y-2 border-gray-600 flex gap-6 bg-gray-800 justify-center w-full">
+                    <p>Outlaws of Thunder Junction (OTJ)</p>
+                    <button
+                        class="bg-gray-700 px-2 h-10 rounded-md"
+                        type="button"
+                        id="otj.-stat-btn"
+                        onclick="showStats('otj', 'otj-stats')"
+                        >
+                        Set Stats
+                    </button>
+                    <a 
+                        class="bg-gray-700 px-2 py-1 rounded-md"
+                        id="otj-run-link"
+                        >
+                        Run OTJ
+                </a>
+                </div>
+                <div class="col-span-12 hidden" id="otj-stats"></div>
+                <div class="mt-2 items-center p-2 border-y-2 border-gray-600 flex gap-6 bg-gray-800 justify-center w-full">
+                    <p>Fallout (PIP)</p>
+                    <button
+                        class="bg-gray-700 px-2 h-10 rounded-md"
+                        type="button"
+                        id="pip.-stat-btn"
+                        onclick="showStats('pip', 'pip-stats')"
+                        >
+                        Set Stats
+                    </button>
+                    <a 
+                        class="bg-gray-700 py-1 px-2 rounded-md"
+                        id="pip-run-link"
+                        >
+                        Run PIP
+                    </a>
+                </div>
+                <div class="col-span-12 hidden" id="pip-stats"></div> 
+            </div>
+         </main>
+
+        <script src="../scripts/navbar.js"></script>
+        <script src="../scripts/mtgpacksim.js"></script>
+        
+
+    </body>
+</html>

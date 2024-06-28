@@ -104,8 +104,10 @@ document.addEventListener('DOMContentLoaded',()=>{
         document.getElementById('type').value = data['type'].charAt(0).toUpperCase() + data['type'].slice(1)
         document.getElementById('subtype').value = data['subtype'] || 'None'
         if (data['alignment'] !== 'any alignment' && data['alignment'] !== 'unaligned'){
-            document.getElementById('alignment1').value = data['alignment'].split(' ')[0]
-            document.getElementById('alignment2').value = data['alignment'].split(' ')[1]
+            document.getElementById('alignment').value = data['alignment']
+        }
+        else{
+            document.getElementById('alignment').value = 'other'
         }
         document.getElementById('armor_class').value = data['armor_class'][0]['value']
         document.getElementById('armor_class_type').value = data['armor_class'][0]['type'] !== 'dex' ? data['armor_class'][0]['type'] : ''
@@ -118,6 +120,22 @@ document.addEventListener('DOMContentLoaded',()=>{
         document.getElementById('wisdom').value = data['wisdom']
         document.getElementById('charisma').value = data['charisma']
         // TODO: add skills and saves
+   
+        
+        const saveProficiencies = data['proficiencies']
+            .filter(prof => prof['proficiency']['name'].startsWith('Saving Throw'))
+            .map(prof => `${prof['proficiency']['name'].split(': ')[1]}`);
+        console.log(saveProficiencies[0])
+        if (saveProficiencies.length > 0){
+            document.getElementById('saves').value = saveProficiencies[0]
+        }
+        if (saveProficiencies.length > 1){
+            saveProficiencies.slice(1).forEach((save) =>{
+                console.log('hi')
+                addProf('save')
+            })
+        }
+
         document.getElementById('challenge_rating').value = data['challenge_rating']
         data['special_abilities'].forEach( ability =>{
             document.getElementById('ability-name').value += ability['name'] + '\n'
@@ -184,6 +202,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     
     
     function formatAttributes(data, type) {
+
         
         const proficiencies = data['proficiencies']
             .filter(prof => prof['proficiency']['name'].startsWith(type))

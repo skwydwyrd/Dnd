@@ -55,12 +55,21 @@
             <div class="sticky w-full max-w-4xl mx-auto p-6 bg-gray-700 bg-opacity-50 rounded-lg shadow-lg">
                 <h2 class="text-xl text-center mb-6">Edit Statblock</h2>
                 <form class="w-full grid grid-cols-4 gap-4" id="editor-form">
+                    <!-- TODO: Fix label styles -->
+                    <label class="text-gray-500 text-center col-span-4" for="name">Name</label>
                     <input class="form-input col-span-4  bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
                         type="text" 
                         placeholder="Name" 
                         id="name"
-                        >
-                    <div class="col-span-4 flex space-x-3">
+                    >
+                    <div class="col-span-4 flex items-center justify-around space-x-3">
+                        <label class="text-gray-500 text-center col-span-4" for="size">Size</label>
+                        <label class="text-gray-500 text-center col-span-4" for="type">Type</label>
+                        <label class="text-gray-500 text-center col-span-4" for="subtype">Subtype/Tag</label>
+                        <label class="text-gray-500 text-center col-span-4" for="alignment">Alignment</label>
+                    </div>
+                    <div class="col-span-4 flex items-center justify-center space-x-3">
+                        
                         <select class="form-select mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
                             id="size">
                             <optgroup label="Size">
@@ -99,23 +108,26 @@
                             id="subtype"
                             >
                         <select class="form-select mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
-                            id="alignment1">
-                            <optgroup label="Alignment (Lawful - Chaotic)">
-                                <option value="lawful">Lawful</option>
-                                <option value="neutral">Neutral</option>
-                                <option value="chaotic">Chaotic</option>
+                            id="alignment">
+                            <optgroup label="Alignment">
+                                <option value="le">Lawful Evil</option>
+                                <option value="ne">Neutral Evil</option>
+                                <option value="ce">Chaotic Evil</option>
+                                <option value="ln">Lawful Neutral</option>
+                                <option value="n">Neutral</option>
+                                <option value="cn">Chaotic Neutral</option>
+                                <option value="lg">Lawful Good</option>
+                                <option value="ng">Neutral Good</option>
+                                <option value="cg">Chaotic Good</option>
+                                <option value="unalgined">Unaligned</option>
+                                <option value="any">Any Alignment</option>
                                 <option value="other">Other</option>
                             </optgroup>
                         </select>
-                        <select class="form-select mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
-                            id="alignment2">
-                            <optgroup label="Alignment (Evil - Good)">
-                                <option value="evil">Evil</option>
-                                <option value="neutral">Neutral</option>
-                                <option value="good">Good</option>
-                                <option value="other">Other</option>
-                            </optgroup>
-                        </select>
+                    </div>
+                    <div class="col-span-4 flex space-x-3">
+                        <label class="text-gray-500 text-center col-span-4" for="armor_class">Armor Class</label>
+                        <label class="text-gray-500 text-center col-span-4" for="armor_class_type">Armor Class type</label>
                     </div>
                     <div class="col-span-4 flex space-x-3">
                         <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
@@ -129,11 +141,13 @@
                             id="armor_class_type"
                             >
                     </div>
+                    <label class="text-gray-500 text-center col-span-4" for="hit_dice">Hit Dice</label>
                     <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
                         type="text" 
                         placeholder="Hit Dice" 
                         id="hit_dice"
                         >
+                    <label class="text-gray-500 text-center col-span-4" for="speed-umber">Speed</label>
                     <div class="col-span-4 space-x-3">
                         <div class="flex space-x-3">
                         <select 
@@ -163,34 +177,39 @@
                     </div>
                     <div class="w-full col-span-4 mb-4" id="additional-speeds"></div>
                     <div class="col-span-4 flex space-x-3">
+                        <label for="strength" class="">Strength</label>
                         <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
                             type="number" 
                             min="1"
                             max="30"
                             placeholder="Strength" 
                             id="strength"
-                            >
+                        >
+                        <label for="dexterity" class="">Dexterity</label>
                         <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
                             type="number"
                             min="1"
                             max="30" 
                             placeholder="Dexterity" 
                             id="dexterity"
-                            >
+                        >
+                        <label for="constitution" class="">Constitution</label>
                         <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
                             type="number" 
                             min="1"
                             max="30"
                             placeholder="Constitution" 
                             id="constitution"
-                            >
+                        >
+                        <label for="intelligence" class="">Intelligence</label>
                         <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
                             type="number" 
                             min="1"
                             max="30"
                             placeholder="Intelligence" 
                             id="intelligence"
-                            >
+                        >
+                        <label class="text-gray-500 text-center col-span-4" for="wisdom">Wisdom</label>
                         <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
                             type="number"
                             min="1"
@@ -198,6 +217,7 @@
                             placeholder="Wisdom" 
                             id="wisdom"
                             >
+                        <label class="text-gray-500 text-center col-span-4" for="charisma">Charisma</label>
                         <input class="form-input mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
                             type="number"
                             min="1"
@@ -207,15 +227,17 @@
                             >
                     </div>
                     <div class="flex col-span-4">
+                        <label for="saves" class="">Saves</label>
+
                         <select class="form-select bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-hand transition duration-300"
                             id="saves">
                             <optgroup label="Saving Throw Proficiencies">
-                                <option value="Strength">Strength</option>
-                                <option value="Dexterity">Dexterity</option>
-                                <option value="Constitution">Constitution</option>
-                                <option value="Intelligence">Intelligence</option>
-                                <option value="Wisdom">Wisdom</option>
-                                <option value="Charisma">Charisma</option>
+                                <option value="STR">Strength</option>
+                                <option value="DEX">Dexterity</option>
+                                <option value="CON">Constitution</option>
+                                <option value="INT">Intelligence</option>
+                                <option value="WIS">Wisdom</option>
+                                <option value="CHA">Charisma</option>
                                 <option value="Other">Other</option>
                             </optgroup>
                         </select>
@@ -229,6 +251,8 @@
                     </div>
                     <div class="w-full col-span-4 mb-4" id="additional-saves"></div>
                     <div class="flex col-span-4">
+                        <label for="skills" class="">Skills</label>
+
                         <select class="form-select bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-hand transition duration-300"
                             id="skills">
                             <optgroup label="Skill Proficiencies">
@@ -263,6 +287,8 @@
                     </div>
                     <div class="w-full col-span-4" id="additional-skills"></div>
                     <div class="flex col-span-4">
+                        <label for="senses" class="">Senses</label>
+
                         <select class="form-select mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
                             id="senses">
                             <optgroup label="Senses">
@@ -280,6 +306,7 @@
                         </button>
                     </div>
                     <div class="flex col-span-4">
+                        <label for="languages" class="">Languages</label>
                         <select class="form-select mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300"
                             id="languages">
                             <optgroup label="Common Languages">
@@ -312,6 +339,7 @@
                     <input class="col-span-4 mb-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 block w-full p-2.5 rounded-md shadow appearance-none cursor-pointer transition duration-300" 
                         type="number"
                         min="0"
+                        step="any"
                         max="30" 
                         placeholder="Challenge Rating" 
                         id="challenge_rating"
@@ -391,12 +419,12 @@
                         </div>
                         <div class="text-center" id="additional-legendary"></div>
                     </div>
-
+                    <button 
+                        class="col-span-2 md:col-span-3 lg:col-span-4 bg-gray-600 bg-opacity-50 border-2 border-gray-600 hover:border-indigo-500 hover:ring-1 hover:ring-indigo-500 font-bold py-2 px-4 mt-6 rounded rounded-md transition duration-300"
+                        id="submit_edit">
+                        Submit
+                    </button>
                 </form>
-
-
-                
-            
             </div>
 
 
